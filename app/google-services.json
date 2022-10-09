@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "416754744980",
+    "project_id": "van-service-75a7d",
+    "storage_bucket": "van-service-75a7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416754744980:android:ce904bdc4282be29a5fe81",
+        "android_client_info": {
+          "package_name": "dhairyapandya.com.vanservice2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416754744980-mq96u7gb4pcdmq4apes2rando4s7pckb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvuQt9PLwWB2z_sC_ifHBA6G3mmwq8sFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416754744980-mq96u7gb4pcdmq4apes2rando4s7pckb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
