@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".customer.selecteddriverconfirmation">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="Congratulation you have selected :"
+        android:textSize="30sp"
+        ></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:id="@+id/drivername"
+        android:text="Congratulation you have selected :"
+        android:textSize="24sp"
+        ></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+android:layout_marginTop="370dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+        <Button
+            android:id="@+id/previous"
+            android:layout_width="56dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/Cpassword"
+            android:layout_marginRight="200dp"
+            android:background="@drawable/next_button_bg"
+            android:drawableLeft="@drawable/ic_baseline_west_24"
+            android:elevation="35dp"
+            android:padding="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="56dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/Cpassword"
+            android:background="@drawable/next_button_bg"
+            android:drawableLeft="@drawable/ic_baseline_east_24"
+            android:elevation="35dp"
+            android:padding="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+</LinearLayout>

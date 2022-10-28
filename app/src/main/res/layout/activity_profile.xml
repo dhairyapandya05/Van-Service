@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profilebackground"
+    tools:context=".miscellaneous.profile">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilepicture"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:src="@drawable/users"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <TextView
+        android:id="@+id/namelable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/nameview"
+        app:layout_constraintEnd_toEndOf="@+id/emaillable"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/emaillable" />
+
+    <TextView
+        android:id="@+id/emaillable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/emailview"
+        app:layout_constraintEnd_toEndOf="@+id/mobilenumberlable"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/mobilenumberlable" />
+
+    <TextView
+        android:id="@+id/mobilenumberlable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Mobile No."
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Mobilenumberview"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/nameview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Name"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/emailview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/profilepicture"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/emailview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Email"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/Mobilenumberview"
+        app:layout_constraintEnd_toEndOf="@+id/nameview"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_goneMarginBottom="36dp" />
+
+    <TextView
+        android:id="@+id/Mobilenumberview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="452dp"
+        android:text="Mobile Number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/emailview"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_goneMarginBottom="36dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="122dp" />
+
+    <Button
+        android:id="@+id/resetpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+        android:drawablePadding="20dp"
+        android:gravity="center_horizontal"
+        android:text="Reset Password"
+        android:textAllCaps="false"
+        android:textColor="#050505"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/editprofile"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editprofile"
+        app:layout_constraintTop_toBottomOf="@+id/editprofile" />
+
+    <Button
+        android:id="@+id/editprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_edit_24"
+        android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+        android:drawablePadding="20dp"
+        android:gravity="center_horizontal"
+        android:text="Edit Profile"
+        android:textAllCaps="false"
+        android:textColor="#050505"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Mobilenumberview" />
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="30"
+        app:layout_constraintEnd_toEndOf="@+id/resetpassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/resetpassword"
+        app:layout_constraintTop_toBottomOf="@+id/resetpassword">
+
+        <TextView
+            android:id="@+id/verifyemail"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="29"
+            android:gravity="center_vertical"
+            android:text="Verify Email address"
+            android:textColor="#050505"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/verify"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Verify"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

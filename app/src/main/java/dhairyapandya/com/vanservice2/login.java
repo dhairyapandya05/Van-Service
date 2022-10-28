@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import dhairyapandya.com.vanservice2.customer.locationdetails;
+import dhairyapandya.com.vanservice2.customer.usershomepage;
+import dhairyapandya.com.vanservice2.driver.vehicaldetails;
+
 public class login extends AppCompatActivity {
+    String usetp;
     EditText username, password;
     TextView forgotpassword;
     Button signupbutton, register;
@@ -31,6 +37,7 @@ public class login extends AppCompatActivity {
 //    GoogleSignInClient mGoogleSignInClient;
 
     public static final int GOOGLE_CODE = 10005;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,17 +45,31 @@ public class login extends AppCompatActivity {
         username = findViewById(R.id.Email);
         password = findViewById(R.id.password);
         signupbutton = findViewById(R.id.SignupButton);
-        forgotpassword=findViewById(R.id.forgotpassword);
+        forgotpassword = findViewById(R.id.forgotpassword);
         register = findViewById(R.id.REGISTER);
-        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         reset_alert = new AlertDialog.Builder(this);
-        inflater=this.getLayoutInflater();
-        btn=findViewById(R.id.signinwalla);
+        inflater = this.getLayoutInflater();
+        btn = findViewById(R.id.signinwalla);
+
+
+//RETREVE DATA FROM THE SHARED PREFERENCE
+        SharedPreferences prefs = getSharedPreferences("Van Service users data", MODE_PRIVATE);
+        String usertype = prefs.getString("Use type", "Customer"); //"Blank Name" the default value.
+        //retreving data from logout screeens
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {
+//             usetp = extras.getString("usertype");
+//
+//            //The key argument here must match that used in the other activity
+//        }
+
+
         //register Button
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),register.class));
+                startActivity(new Intent(getApplicationContext(), register.class));
             }
         });
 
@@ -74,17 +95,27 @@ public class login extends AppCompatActivity {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 //login is sucessful
-                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                if (usertype.equals("Driver")) {
+                                    Intent in = new Intent(login.this, vehicaldetails.class);
+                                    startActivity(in);
+                                    finish();
+                                } else if (usertype.equals("Customer")) {
+                                    Intent i = new Intent(login.this, locationdetails.class);
+                                    startActivity(i);
+                                    finish();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                                }
+
+
+                                startActivity(new Intent(getApplicationContext(), usershomepage.class));
                                 finish();//So that user never jumps to login activity again when he press on back button
-//                        status=0;
-//                        Intent i = new Intent(login.this,profilefragment.class);
-//                        i.putExtra("STATUS",status);
-//                        startActivity(i);
+
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(login.this, e.getMessage(),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(login.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             }
@@ -97,15 +128,14 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //start alert dialog
-                View view = inflater.inflate(R.layout.reset_pop,null);
+                View view = inflater.inflate(R.layout.reset_pop, null);
                 reset_alert.setTitle("Reset Forgot Password ?").setMessage("Enter Your Email to get password reset link.")
                         .setPositiveButton("Reset", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //validate the email Address
                                 EditText email = view.findViewById(R.id.reset_email_pop);
-                                if(email.getText().toString().isEmpty())
-                                {
+                                if (email.getText().toString().isEmpty()) {
                                     email.setError("Required Field");
                                     return;
                                 }
@@ -125,8 +155,9 @@ public class login extends AppCompatActivity {
                                         });
 
                             }
-                        }).setNegativeButton("Cancel",null).setView(view).create().show();
+                        }).setNegativeButton("Cancel", null).setView(view).create().show();
             }
         });
     }
+
 }

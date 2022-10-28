@@ -36,7 +36,31 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-auth:21.0.8'
     implementation 'com.google.firebase:firebase-firestore:24.3.1'
+    implementation 'com.google.firebase:firebase-storage:20.0.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //circular image view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //glide liberary
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+    //    profile picture customisation
+    //to change the profile image in the profile section
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+//    implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
+//Dependency for about page
+//    implementation 'io.github.medyo:android-about-page:2.0.0'
+
+    implementation 'com.github.Shashank02051997:FancyAboutPage-Android:2.8'
+//    implementation 'com.mikhaellopez:circularimageview:4.3.1'
+    implementation 'com.github.IntruderShanky:Squint:3.0.1'
+    //Lottee Animations
+    implementation 'com.airbnb.android:lottie:3.4.0'
+    //database ui
+    implementation 'com.firebaseui:firebase-ui-database:6.2.1'
+    //View pager
+    implementation 'com.google.android.material:material:1.1.0-alpha08'
+
+
 }

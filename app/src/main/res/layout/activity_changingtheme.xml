@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#A2DF9B"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".miscellaneous.changingtheme">
+
+
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="29dp"
+        android:layout_marginTop="35dp"
+
+        android:foregroundGravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/img" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/changethemebtn"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/changethemebtn"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+        <TextView
+            android:id="@+id/darkmode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="44dp"
+            android:layout_weight="1"
+            android:text="Dark Mode enhances Visual Ergonomics"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/themebtn"
+            app:layout_constraintEnd_toEndOf="@+id/themebtn"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/themebtn" />
+
+        <TextView
+            android:id="@+id/lightmode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="44dp"
+            android:layout_weight="1"
+            android:text="Light Mode gives good redability"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/themebtn"
+            app:layout_constraintEnd_toEndOf="@+id/themebtn"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/themebtn" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/changethemebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#89C385"
+        android:text="Change Theme"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/animation_view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+</LinearLayout>

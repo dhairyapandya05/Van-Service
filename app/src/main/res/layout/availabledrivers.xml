@@ -5,27 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".availabledrivers">
+    tools:context=".customer.availabledrivers.availabledrivers">
 
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="#00000000"
-            tools:ignore="SpeakableTextPresentCheck"/>
-
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/tabs"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="#00000000"-->
+<!--            tools:ignore="SpeakableTextPresentCheck"/>-->
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Following are the name of the drives available for the selected location"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:textSize="24sp"
+    android:layout_margin="15dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler1"
             android:layout_width="match_parent"
@@ -34,40 +41,40 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="96dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginBottom="96dp"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
 
 
-        <Button
-            android:id="@+id/previous"
-            android:layout_width="56dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/Cpassword"
-            android:layout_marginRight="200dp"
-            android:background="@drawable/next_button_bg"
-            android:drawableLeft="@drawable/ic_baseline_west_24"
-            android:elevation="35dp"
-            android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
+<!--        <Button-->
+<!--            android:id="@+id/previous"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_below="@+id/Cpassword"-->
+<!--            android:layout_marginRight="200dp"-->
+<!--            android:background="@drawable/next_button_bg"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_west_24"-->
+<!--            android:elevation="35dp"-->
+<!--            android:padding="15dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            tools:ignore="SpeakableTextPresentCheck" />-->
 
-        <Button
-            android:id="@+id/next"
-            android:layout_width="56dp"
-            android:layout_height="60dp"
-            android:background="@drawable/next_button_bg"
-            android:drawableLeft="@drawable/ic_baseline_east_24"
-            android:elevation="35dp"
-            android:padding="15dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </LinearLayout>
+<!--        <Button-->
+<!--            android:id="@+id/next"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:background="@drawable/next_button_bg"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_east_24"-->
+<!--            android:elevation="35dp"-->
+<!--            android:padding="15dp"-->
+<!--            tools:ignore="SpeakableTextPresentCheck" />-->
+<!--    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profilebackground"
+    tools:context=".miscellaneous.editprofile">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilepicture"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="436dp"
+        android:src="@drawable/users"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="@+id/profilepicture"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/profilepicture"
+        app:layout_constraintTop_toBottomOf="@+id/profilepicture">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/ename"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mobilenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emobilenumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text|phone"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintEnd_toEndOf="@+id/mobilenumber"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/mobilenumber"
+        app:layout_constraintTop_toBottomOf="@+id/mobilenumber"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eemailaddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="77dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

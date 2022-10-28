@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sbackground"
+    tools:context=".driver.vehicaldetails">
+
+    <TextView
+        android:id="@+id/Signuptitle"
+        android:layout_width="143dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:text="Register"
+        android:textColor="@color/black"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Userdetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Vehicle Details"
+        android:textColor="@color/black"
+        android:textSize="32dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/Signuptitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Signuptitle"
+        app:layout_constraintTop_toBottomOf="@+id/Signuptitle" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Userdetails"
+        app:layout_constraintVertical_bias="0.236">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="15dp"
+
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="@+id/placeofliving"
+            app:layout_constraintTop_toBottomOf="@+id/placeofliving">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City Route"
+                android:textSize="24sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/spinner1"
+                app:layout_constraintEnd_toEndOf="@+id/Userdetails"
+                app:layout_constraintStart_toStartOf="@+id/Userdetails" />
+
+            <Spinner
+                android:id="@+id/cityroute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.754"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Userdetails" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="15dp"
+
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="@+id/placeofliving"
+            app:layout_constraintTop_toBottomOf="@+id/placeofliving">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type of Vehicle"
+                android:textSize="24sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/spinner1"
+                app:layout_constraintEnd_toEndOf="@+id/Userdetails"
+                app:layout_constraintStart_toStartOf="@+id/Userdetails" />
+
+            <Spinner
+                android:id="@+id/typeofvehical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.754"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Userdetails" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/modleno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_bg"
+            android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
+            android:drawablePadding="20dp"
+            android:hint="Modle number"
+
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+
+        <EditText
+            android:id="@+id/colorofthevehicle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_bg"
+            android:drawableLeft="@drawable/ic_baseline_color_lens_24"
+            android:drawablePadding="20dp"
+            android:hint="Color of the vehicle"
+            android:inputType="text"
+            android:padding="15dp"
+
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/modleno"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/modleno"
+            app:layout_constraintTop_toBottomOf="@+id/modleno" />
+
+        <EditText
+            android:id="@+id/platenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_bg"
+            android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
+            android:drawablePadding="20dp"
+
+            android:hint="Registered Plate number"
+            android:inputType="textCapCharacters"
+
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/colorofthevehicle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/colorofthevehicle"
+            app:layout_constraintTop_toBottomOf="@+id/colorofthevehicle" />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/selectstops"
+    android:layout_marginBottom="15dp"
+android:text="Select Stops"
+    />
+        <EditText
+            android:id="@+id/costt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_bg"
+            android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
+            android:drawablePadding="20dp"
+
+            android:hint="Cahrge of the Ride"
+            android:inputType="numberSigned"
+
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/colorofthevehicle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/colorofthevehicle"
+            app:layout_constraintTop_toBottomOf="@+id/colorofthevehicle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+            <Button
+                android:id="@+id/previous"
+                android:layout_width="56dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/Cpassword"
+                android:layout_marginRight="200dp"
+                android:background="@drawable/next_button_bg"
+                android:drawableLeft="@drawable/ic_baseline_west_24"
+                android:elevation="35dp"
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="56dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/Cpassword"
+                android:background="@drawable/next_button_bg"
+                android:drawableLeft="@drawable/ic_baseline_east_24"
+                android:elevation="35dp"
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/socialicon"-->
+    <!--        android:layout_width="173dp"-->
+    <!--        android:layout_height="55dp"-->
+    <!--        android:layout_below="@+id/Cpassword"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/Cpassword"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/Cpassword"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/Cpassword"-->
+    <!--        app:layout_constraintVertical_bias="0.125">-->
+
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/google"-->
+    <!--            android:layout_width="48dp"-->
+    <!--            android:layout_height="48dp"-->
+    <!--            android:layout_margin="2dp"-->
+    <!--            android:background="@drawable/button_bg"-->
+    <!--            android:src="@drawable/google" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/facebook"-->
+    <!--            android:layout_width="48dp"-->
+    <!--            android:layout_height="48dp"-->
+    <!--            android:layout_margin="2dp"-->
+    <!--            android:background="@drawable/button_bg"-->
+    <!--            android:src="@drawable/facebook" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/twitter"-->
+    <!--            android:layout_width="45dp"-->
+    <!--            android:layout_height="38dp"-->
+    <!--            android:layout_margin="2dp"-->
+    <!--            android:background="@drawable/button_bg"-->
+    <!--            android:src="@drawable/twitter" />-->
+
+    <!--    </LinearLayout>-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
