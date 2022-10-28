@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import dhairyapandya.com.vanservice2.R;
 import dhairyapandya.com.vanservice2.driver.viewpageradapter.ViewPagerAdapter;
+import dhairyapandya.com.vanservice2.driver.viewpageradapter.tripprogress;
 import dhairyapandya.com.vanservice2.login;
 import dhairyapandya.com.vanservice2.miscellaneous.aboutpage;
 import dhairyapandya.com.vanservice2.miscellaneous.profile;
@@ -50,29 +51,24 @@ public class drivershomepage extends AppCompatActivity {
                     }
                 }).attach();
 
-        BNV.setSelectedItemId(R.id.homebtn);
+        BNV.setSelectedItemId(R.id.studentslist);
         BNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.stocksbtn:
-                        startActivity(new Intent(getApplicationContext(), stocksbnm.class));
+                    case R.id.tripprogress:
+                        startActivity(new Intent(getApplicationContext(), tripprogress.class));
                         overridePendingTransition(0, 0);
 //                                BNV.setSelectedItemId(R.id.stocksbtn);
 
                         return true;
 
-                    case R.id.homebtn:
+                    case R.id.studentslist:
 //                        startActivity(new Intent(getApplicationContext(),home.class));
 //                        overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.profilebtn:
-                        startActivity(new Intent(getApplicationContext(), profilebnm.class));
-                        overridePendingTransition(0, 0);
-//                        BNV.setSelectedItemId(R.id.profilebtn);
 
-                        return true;
 
 
                 }

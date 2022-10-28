@@ -16,14 +16,7 @@
         android:theme="@style/Theme.VanService"
         tools:targetApi="31">
         <activity
-            android:name=".tripprogress"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".studentslist"
+            android:name=".driver.viewpageradapter.tripprogress"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
