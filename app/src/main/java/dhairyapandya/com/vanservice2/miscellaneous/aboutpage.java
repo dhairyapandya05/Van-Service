@@ -2,6 +2,8 @@ package dhairyapandya.com.vanservice2.miscellaneous;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -12,13 +14,13 @@ import dhairyapandya.com.vanservice2.R;
 
 
 public class aboutpage extends AppCompatActivity {
+    NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutpage);
         FancyAboutPage fancyAboutPage=findViewById(R.id.fancyaboutpage);
-        //fancyAboutPage.setCoverTintColor(Color.BLUE);  //Optional
         fancyAboutPage.setCover(R.drawable.aboutdisplaypicture); //Pass your cover image
         fancyAboutPage.setName("Van Service");
         fancyAboutPage.setDescription("Van service is a Self Regulated Android Application | Android App and Software Developer.");
@@ -34,5 +36,18 @@ public class aboutpage extends AppCompatActivity {
         fancyAboutPage.addLinkedinLink("https://www.linkedin.com/in/shashank-singhal-a87729b5/");
         fancyAboutPage.addGitHubLink("https://github.com/Shashank02051997");
 
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter =new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver);
+        super.onDestroy();
     }
 }

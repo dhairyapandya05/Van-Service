@@ -16,6 +16,8 @@
         android:textColor="@color/black"
         android:textSize="36dp"
         android:textStyle="bold"
+        android:fontFamily="@font/ttnormspromedium"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,6 +33,8 @@
         android:text="User Details"
         android:textColor="@color/black"
         android:textSize="32dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +51,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:background="@drawable/button_bg"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="20dp"
@@ -64,6 +70,8 @@
     <EditText
         android:id="@+id/Mobilenumber"
         android:inputType="phone"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Name"
@@ -91,6 +99,8 @@
         android:layout_below="@+id/Mobilenumber"
         android:layout_marginStart="20dp"
         android:layout_marginTop="0dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_bg"
         android:drawableLeft="@drawable/ic_baseline_email_24"
@@ -113,6 +123,8 @@
         android:layout_below="@+id/Email"
         android:layout_marginStart="20dp"
         android:layout_marginTop="0dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_bg"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
@@ -136,6 +148,8 @@
         android:layout_below="@+id/password"
         android:layout_marginStart="20dp"
         android:layout_marginTop="0dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_bg"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
@@ -157,6 +171,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:background="#00FFFFFF"
         android:text="Already Member? Login"
         android:textAllCaps="false"
@@ -170,15 +186,18 @@
         app:layout_constraintTop_toBottomOf="@+id/Cpassword"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/SignupButton"
         android:layout_width="56dp"
         android:layout_height="60dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:layout_below="@+id/Cpassword"
+        android:scaleType="centerCrop"
         android:background="@drawable/next_button_bg"
-        android:drawableLeft="@drawable/ic_baseline_east_24"
+        android:drawableLeft="@drawable/ic_baseline_arrow_forward_24"
         android:elevation="35dp"
-        android:padding="15dp"
+        android:src="@drawable/forwardbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/Cpassword"
         app:layout_constraintHorizontal_bias="1.0"

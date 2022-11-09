@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +18,13 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import dhairyapandya.com.vanservice2.R;
 
 public class changingtheme extends AppCompatActivity {
+    NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
 
     Button Changetheme;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private int checkeditem;
     private String selected;
-    //Handler mHandler;
     private final String CHECKEDITEM = "checked_item";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,5 +133,20 @@ public class changingtheme extends AppCompatActivity {
     private void setCheckeditem(int i){
         editor.putInt(CHECKEDITEM,i);
         editor.apply();
+    }
+
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter =new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver);
+        super.onDestroy();
+//        unregisterNetwork();
     }
 }

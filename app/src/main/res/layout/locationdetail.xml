@@ -7,20 +7,22 @@
     android:background="@drawable/sbackground"
     tools:context=".customer.locationdetails">
 
+
     <TextView
         android:id="@+id/Signuptitle"
         android:layout_width="143dp"
         android:layout_height="51dp"
-        android:layout_marginTop="100dp"
+
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/ttnormsproblack"
         android:text="Register"
         android:textColor="@color/black"
         android:textSize="36dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/Userdetails"
@@ -28,6 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:text="Location Details"
         android:textColor="@color/black"
         android:textSize="32dp"
@@ -64,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:text="City"
                 android:textSize="24sp"
+                android:fontFamily="@font/ttnormspromedium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/spinner1"
                 app:layout_constraintEnd_toEndOf="@+id/Userdetails"
                 app:layout_constraintStart_toStartOf="@+id/Userdetails" />
@@ -73,7 +78,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
+                android:tooltipText="SELECT cITY"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/ttnormspromedium"
+
                 app:layout_constraintHorizontal_bias="0.754"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Userdetails" />
@@ -95,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:text="Boarding point"
                 android:textSize="24sp"
+                android:fontFamily="@font/ttnormspromedium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/spinner"
                 app:layout_constraintEnd_toEndOf="@+id/Userdetails"
                 app:layout_constraintStart_toStartOf="@+id/Userdetails" />
@@ -104,8 +113,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
-
                 app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/ttnormspromedium"
+
                 app:layout_constraintHorizontal_bias="0.754"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Userdetails" />
@@ -116,20 +126,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="164dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
 
-        <Button
+        <ImageButton
             android:id="@+id/previous"
             android:layout_width="56dp"
             android:layout_height="60dp"
             android:layout_below="@+id/Cpassword"
             android:layout_marginRight="200dp"
-            android:background="@drawable/next_button_bg"
+            android:background="@drawable/backbtn"
             android:drawableLeft="@drawable/ic_baseline_west_24"
             android:elevation="35dp"
             android:padding="15dp"
@@ -137,12 +147,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <Button
+        <ImageButton
             android:id="@+id/next"
             android:layout_width="56dp"
             android:layout_height="60dp"
             android:layout_below="@+id/Cpassword"
-            android:background="@drawable/next_button_bg"
+            android:background="@drawable/forwardbtn"
             android:drawableLeft="@drawable/ic_baseline_east_24"
             android:elevation="35dp"
             android:padding="15dp"

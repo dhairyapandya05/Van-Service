@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <RadioGroup
         android:id="@+id/radgrp"
         android:layout_width="wrap_content"
@@ -20,7 +22,10 @@
 
         <RadioButton
             android:id="@+id/Customer"
+            android:fontFamily="@font/ttnormspromedium"
+
             android:layout_width="wrap_content"
+            android:buttonTint="@color/purple_700"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:checked="true"
@@ -30,7 +35,10 @@
 
         <RadioButton
             android:id="@+id/Driver"
+            android:fontFamily="@font/ttnormspromedium"
+
             android:layout_width="wrap_content"
+            android:buttonTint="@color/purple_700"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
 
@@ -39,8 +47,7 @@
         </RadioButton>
 
 
-
-        </RadioGroup>
+    </RadioGroup>
 
 
     <ImageButton
@@ -54,10 +61,10 @@
         android:background="@drawable/next_button_bg"
         android:drawableLeft="@drawable/ic_baseline_arrow_forward_24"
         android:scaleType="centerCrop"
-        android:src="@drawable/pic4"
+        android:src="@drawable/forwardbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radgrp"
         app:layout_constraintVertical_bias="0.47" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

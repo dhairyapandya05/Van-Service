@@ -6,12 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,18 +26,21 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import dhairyapandya.com.vanservice2.customer.locationdetails;
 import dhairyapandya.com.vanservice2.customer.usershomepage;
+import dhairyapandya.com.vanservice2.driver.drivershomepage;
 import dhairyapandya.com.vanservice2.driver.vehicaldetails;
+import dhairyapandya.com.vanservice2.miscellaneous.NetworkChangeReceiver;
 
 public class login extends AppCompatActivity {
     String usetp;
     EditText username, password;
     TextView forgotpassword;
-    Button signupbutton, register;
+    ImageButton signupbutton;
+    Button register;
     SignInButton btn;
     FirebaseAuth firebaseAuth;
     AlertDialog.Builder reset_alert;
     LayoutInflater inflater;
-//    GoogleSignInClient mGoogleSignInClient;
+    NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
 
     public static final int GOOGLE_CODE = 10005;
 
@@ -56,13 +62,7 @@ public class login extends AppCompatActivity {
 //RETREVE DATA FROM THE SHARED PREFERENCE
         SharedPreferences prefs = getSharedPreferences("Van Service users data", MODE_PRIVATE);
         String usertype = prefs.getString("Use type", "Customer"); //"Blank Name" the default value.
-        //retreving data from logout screeens
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//             usetp = extras.getString("usertype");
-//
-//            //The key argument here must match that used in the other activity
-//        }
+
 
 
         //register Button
@@ -96,11 +96,11 @@ public class login extends AppCompatActivity {
                             public void onSuccess(AuthResult authResult) {
                                 //login is sucessful
                                 if (usertype.equals("Driver")) {
-                                    Intent in = new Intent(login.this, vehicaldetails.class);
+                                    Intent in = new Intent(login.this, drivershomepage.class);
                                     startActivity(in);
                                     finish();
                                 } else if (usertype.equals("Customer")) {
-                                    Intent i = new Intent(login.this, locationdetails.class);
+                                    Intent i = new Intent(login.this, usershomepage.class);
                                     startActivity(i);
                                     finish();
                                 } else {
@@ -108,8 +108,6 @@ public class login extends AppCompatActivity {
                                 }
 
 
-                                startActivity(new Intent(getApplicationContext(), usershomepage.class));
-                                finish();//So that user never jumps to login activity again when he press on back button
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -160,4 +158,16 @@ public class login extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver, filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver);
+        super.onDestroy();
+    }
 }

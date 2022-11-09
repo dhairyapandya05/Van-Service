@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -19,16 +22,16 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import dhairyapandya.com.vanservice2.customer.locationdetails;
 import dhairyapandya.com.vanservice2.driver.vehicaldetails;
+import dhairyapandya.com.vanservice2.miscellaneous.NetworkChangeReceiver;
 
 public class register extends AppCompatActivity {
     public static final String TAG = "TAG";
-    //    Spinner spn;
-//    String country[]={"Select your Pick up point","Canal","Santram","College road","Vanyvad","Peplag chokdi"};
-//    String pickuppoint;
+
     EditText Name, Mobilenumber, Emailaddress, Password, Confirmpassword;
-    Button Signupbutton, login;
+    ImageButton Signupbutton;
+        Button login;
     FirebaseAuth fAuth;
-//    FirebaseFirestore fstore;
+NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
 
 
     @Override
@@ -44,49 +47,10 @@ public class register extends AppCompatActivity {
         login = findViewById(R.id.REGISTER);
 
         fAuth = FirebaseAuth.getInstance();
-//        fstore=FirebaseFirestore.getInstance();
-//        spn=findViewById(R.id.spinner);
-//Code for  the spinner work
-//        ArrayAdapter adp = new ArrayAdapter(this, android.R.layout.simple_spinner_item,country);
-//        adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spn.setAdapter(adp);
 
 
-//        spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                if(i==0)
-//                {
-////                    txt.setText("");
-//                    Toast.makeText(register.this, "Please Select a valid area", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-////                    txt.setText(country[i]);
-//                    pickuppoint=country[i];
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
 
 
-        //code for sending user to login screen
-
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            usertype = extras.getString("usertype");
-//            if (usertype.equals("Driver") || usertype.equals("Customer")) {
-//                Toast.makeText(this, "All right", Toast.LENGTH_SHORT).show();
-//
-//            } else {
-//                //never expect code to come here
-//                Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//            }
-//            //The key argument here must match that used in the other activity
-//        }
 
         SharedPreferences prefs = getSharedPreferences("Van Service users data", MODE_PRIVATE);
         String usertype = prefs.getString("Use type", "Customer"); //"Blank Name" the default value.
@@ -111,13 +75,7 @@ public class register extends AppCompatActivity {
 
 
 
-                //Lagta nahi hai nichae waalae code ki zarurat padaegi ....
 
-                //if user is already logged in then directly to main activity
-//                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-//                    startActivity(new Intent(getApplicationContext(), usershomepage.class));
-//                    finish();
-//                }
 
                 if (name.isEmpty()) {
                     Name.setError("Name is required");
@@ -147,45 +105,12 @@ public class register extends AppCompatActivity {
                 // data is validated
                 Toast.makeText(register.this, "Data Validated", Toast.LENGTH_SHORT).show();
 
-//                if (usertype.equals("Customer")) {
-//                    Intent i = new Intent(register.this, locationdetails.class);
-//                    i.putExtra("Name", name);
-//                    i.putExtra("Mobile Number", mobilenumber);
-//                    i.putExtra("Mail ID", email);
-//                    i.putExtra("Password", password);
-//                    i.putExtra("typeofuser", usertype);
-//                    startActivity(i);
-//                } else if (usertype.equals("Driver")) {
-//                    Intent i = new Intent(register.this, vehicaldetails.class);
-//                    i.putExtra("Name", name);
-//                    i.putExtra("Mobile Number", mobilenumber);
-//                    i.putExtra("Mail ID", email);
-//                    i.putExtra("Password", password);
-//                    i.putExtra("typeofuser", usertype);
-//                    startActivity(i);
-//                } else {
-//                    Toast.makeText(register.this, "Something Went wrong", Toast.LENGTH_SHORT).show();
-//                }
+
                 fAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         //Storing the data in the firestore
-//                        userID=fAuth.getCurrentUser().getUid();
-//                        DocumentReference documentReference=fstore.collection("users").document(userID);
-//                        Map<String,Object> user = new HashMap<>();
-//                        user.put("Name",name);
-//                        user.put("Mobile Number",mobilenumber);
-//                        user.put("Mail ID",email);
-//                        user.put("Password",password);
-//
-////                        user.put("Pickup point",pickuppoint);
-//
-//                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void unused) {
-//                                Log.d(TAG,"onSucess: user Profile is created for "+userID);
-//                            }
-//                        });
+
 
 //STORING THE DATA TO THE SHARED PREFERENCE
                         //DO THE WORK OF SHARED PREFERENCE
@@ -195,7 +120,7 @@ public class register extends AppCompatActivity {
                         editor.putString("Mail ID", email);
                         editor.putString("Password", password);
                         editor.apply();
-                        Toast.makeText(register.this, "Data added from shared preference", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(register.this, "Data added from shared preference", Toast.LENGTH_SHORT).show();
 
                         //sending the user in the main activity
 
@@ -225,4 +150,18 @@ public class register extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter =new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver);
+        super.onDestroy();
+    }
+
 }

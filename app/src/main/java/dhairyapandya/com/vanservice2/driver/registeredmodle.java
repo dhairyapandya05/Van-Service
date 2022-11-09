@@ -1,14 +1,24 @@
 package dhairyapandya.com.vanservice2.driver;
 
+import java.util.List;
+
 public class registeredmodle {
     String BoardingPoint,City,MailID,MobileNumber,Name;
+    List<String> tags;
+    private String documentId;
 
-    public registeredmodle(String boardingPoint, String city, String mailID, String mobileNumber, String name) {
+    registeredmodle(){
+
+    }
+
+
+    public registeredmodle(String boardingPoint, String city, String mailID, String mobileNumber, String name, List<String> tags) {
         BoardingPoint = boardingPoint;
         City = city;
         MailID = mailID;
         MobileNumber = mobileNumber;
         Name = name;
+        this.tags = tags;
     }
 
     public String getBoardingPoint() {
@@ -51,6 +61,20 @@ public class registeredmodle {
         Name = name;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
 
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
 
 }

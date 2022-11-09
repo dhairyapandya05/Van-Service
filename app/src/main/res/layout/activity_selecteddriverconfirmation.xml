@@ -12,6 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:text="Congratulation you have selected :"
         android:textSize="30sp"
         ></TextView>
@@ -20,6 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:id="@+id/drivername"
         android:text="Congratulation you have selected :"
         android:textSize="24sp"
@@ -36,27 +40,27 @@ android:layout_marginTop="370dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
 
-        <Button
+        <ImageButton
             android:id="@+id/previous"
             android:layout_width="56dp"
             android:layout_height="60dp"
             android:layout_below="@+id/Cpassword"
             android:layout_marginRight="200dp"
-            android:background="@drawable/next_button_bg"
-            android:drawableLeft="@drawable/ic_baseline_west_24"
+            android:background="@drawable/backbtn"
+
             android:elevation="35dp"
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <Button
+        <ImageButton
             android:id="@+id/next"
             android:layout_width="56dp"
             android:layout_height="60dp"
             android:layout_below="@+id/Cpassword"
-            android:background="@drawable/next_button_bg"
-            android:drawableLeft="@drawable/ic_baseline_east_24"
+            android:background="@drawable/forwardbtn"
+            android:scaleType="centerCrop"
             android:elevation="35dp"
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"

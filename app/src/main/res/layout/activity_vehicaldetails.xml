@@ -15,6 +15,8 @@
         android:text="Register"
         android:textColor="@color/black"
         android:textSize="36dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
@@ -29,6 +31,8 @@
         android:text="Vehicle Details"
         android:textColor="@color/black"
         android:textSize="32dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="@+id/Signuptitle"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,6 +45,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:fontFamily="@font/ttnormspromedium"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -66,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:text="City Route"
                 android:textSize="24sp"
+                android:fontFamily="@font/ttnormspromedium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/spinner1"
                 app:layout_constraintEnd_toEndOf="@+id/Userdetails"
                 app:layout_constraintStart_toStartOf="@+id/Userdetails" />
@@ -100,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:text="Type of Vehicle"
                 android:textSize="24sp"
+                android:fontFamily="@font/ttnormspromedium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/spinner1"
                 app:layout_constraintEnd_toEndOf="@+id/Userdetails"
                 app:layout_constraintStart_toStartOf="@+id/Userdetails" />
@@ -125,6 +133,7 @@
             android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
             android:drawablePadding="20dp"
             android:hint="Modle number"
+            android:fontFamily="@font/ttnormspromedium"
 
             android:inputType="text"
             android:padding="15dp"
@@ -148,6 +157,7 @@
             android:hint="Color of the vehicle"
             android:inputType="text"
             android:padding="15dp"
+            android:fontFamily="@font/ttnormspromedium"
 
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -165,6 +175,7 @@
             android:background="@drawable/button_bg"
             android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
             android:drawablePadding="20dp"
+            android:fontFamily="@font/ttnormspromedium"
 
             android:hint="Registered Plate number"
             android:inputType="textCapCharacters"
@@ -180,6 +191,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/selectstops"
+    android:fontFamily="@font/ttnormspromedium"
+
     android:layout_marginBottom="15dp"
 android:text="Select Stops"
     />
@@ -192,6 +205,7 @@ android:text="Select Stops"
             android:background="@drawable/button_bg"
             android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
             android:drawablePadding="20dp"
+            android:fontFamily="@font/ttnormspromedium"
 
             android:hint="Cahrge of the Ride"
             android:inputType="numberSigned"
@@ -215,13 +229,13 @@ android:text="Select Stops"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
 
-            <Button
+            <ImageButton
                 android:id="@+id/previous"
                 android:layout_width="56dp"
                 android:layout_height="60dp"
                 android:layout_below="@+id/Cpassword"
                 android:layout_marginRight="200dp"
-                android:background="@drawable/next_button_bg"
+                android:background="@drawable/backbtn"
                 android:drawableLeft="@drawable/ic_baseline_west_24"
                 android:elevation="35dp"
                 android:padding="15dp"
@@ -229,12 +243,12 @@ android:text="Select Stops"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/next"
                 android:layout_width="56dp"
                 android:layout_height="60dp"
                 android:layout_below="@+id/Cpassword"
-                android:background="@drawable/next_button_bg"
+                android:background="@drawable/forwardbtn"
                 android:drawableLeft="@drawable/ic_baseline_east_24"
                 android:elevation="35dp"
                 android:padding="15dp"

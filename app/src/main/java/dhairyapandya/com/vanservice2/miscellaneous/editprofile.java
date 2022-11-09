@@ -5,7 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -40,6 +42,7 @@ public class editprofile extends AppCompatActivity {
     FirebaseFirestore fStore;
     FirebaseUser user;
     StorageReference storageReference;
+    NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,16 +88,10 @@ public class editprofile extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void unused) {
                                 //Also update it in shared preference
-//                                SharedPreferences.Editor editor = getSharedPreferences("Van Service users data", MODE_PRIVATE).edit();
-//                                editor.putString("Name", Name.getText().toString());
-//                                editor.putString("Mobile Number", Mobile.getText().toString());
-//                                editor.putString("Mail ID", Editedemail);
-//                                editor.putString("Password", password);
+
                                 SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(editprofile.this).edit();
                                 edit.putString("Name",Name.getText().toString());
-//                                edit.putString(Settings.PREF_PASSWORD+"",txtpass);
                                 edit.apply();
-//                                editor.apply();
 
 
                                 Toast.makeText(editprofile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
@@ -116,15 +113,7 @@ public class editprofile extends AppCompatActivity {
             }
         });
 
-        //profile picture change
-//        Profilepic.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                Toast.makeText(editprofile.this, "Profile Pic clicked", Toast.LENGTH_SHORT).show();
-//                Intent openGalleryIntent=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                startActivityForResult(openGalleryIntent,1212);
-//            }
-//        });
+
         Profilepic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,64 +138,7 @@ public class editprofile extends AppCompatActivity {
     }
 
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode==1212)
-//        {
-//            if(resultCode== Activity.RESULT_OK){
-//                Uri imageUri=data.getData();
-//
-//                //this is the risky code
-//
-////                Intent i = new Intent(this, profilepage.class);
-////                i.putExtra("imagePath", imageUri);
-////                startActivity(i);
-//                //Risky code ends
-////                Uri selectedImage = data.getData();
-//
-////                Intent i = new Intent(this, profilepage.class);
-////                i.putExtra("imagePath", selectedImage);
-//                Profilepic.setImageURI(imageUri);
-////                Glide.with(editprofile.this).load(imageUri).into(Profilepic);
-//
-//                uploadImageToFirebase(imageUri);
-////                startActivity(i);
-////                Uri uri = data.getData();
-////                Intent intent=new Intent(editprofile.this,profilepage.class);
-////                intent.putExtra("imageUri", uri.toString());
-////                startActivity(intent);
-////                Uri selectedImage = data.getData();
-//////                Intent intent = new Intent(this, profilepage.class);
-////                i.putExtra("imagePath", selectedImage);
-////                startActivity(i);
-//
-////                    Intent intent =new Intent(editprofile.this,profilepage.class);
-////                    intent.putExtra("xyz",Profilepic.);
-////                    startActivity(intent);
-//
-////                Intent i = new Intent(this, profilepage.class);
-////                Bitmap b=imageUri; // your bitmap
-////                ByteArrayOutputStream bs = new ByteArrayOutputStream();
-////                b.compress(Bitmap.CompressFormat.PNG, 50, bs);
-////                i.putExtra("profileimage", bs.toByteArray());
-////                startActivity(i);
-//
-////                Intent intent= new Intent(this, profilepage.class);
-//////                intent.putExtra("image", Profilepic.getAvatar_id());
-////                startActivity(intent);
-//
-//
-////                Intent i = new Intent(this, profilepage.class);
-////                Bitmap b; // your bitmap
-////                ByteArrayOutputStream bs = new ByteArrayOutputStream();
-//////                bs.compress(Bitmap.CompressFormat.PNG, 50, bs);
-////                i.putExtra("byteArray", bs.toByteArray());
-////                startActivity(i);
-//
-//            }
-//        }
-//    }
+
 
     private void uploadImageToFirebase(Uri imageUri) {
         //logic to upload image to firebase storage
@@ -214,13 +146,11 @@ public class editprofile extends AppCompatActivity {
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                Toast.makeText(profilepage.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         Profilepic.setImageURI(uri);
-//                        Glide.with(editprofile.this).load(uri).into(Profilepic);
-                        Toast.makeText(editprofile.this, "Sucesss Mil gai bhai .... Congo ", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(editprofile.this, "Sucesss Mil gai bhai .... Congo ", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -234,5 +164,18 @@ public class editprofile extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter =new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver);
+        super.onDestroy();
     }
 }

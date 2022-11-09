@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import dhairyapandya.com.vanservice2.miscellaneous.NetworkChangeReceiver;
 import dhairyapandya.com.vanservice2.miscellaneous.profile;
 
 public class resetpassword extends AppCompatActivity {
@@ -25,6 +28,8 @@ public class resetpassword extends AppCompatActivity {
     FirebaseUser user;
     FirebaseAuth fAuth;
     Button Resetpasswordusingmail;
+    NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,13 +91,9 @@ public class resetpassword extends AppCompatActivity {
                 {
                     Toast.makeText(resetpassword.this,"Password field required",Toast.LENGTH_SHORT).show();
                 }
-//                if(reenterpassword.getText().toString().isEmpty())
-//                {
-//                    Toast.makeText(resetpassword.this,"Password field required",Toast.LENGTH_SHORT).show();
-//                }
+
                 if(!(reenterpassword.getText().toString().trim().equals(password.getText().toString().trim().isEmpty())))
                 {
-//                    Toast.makeText(resetpassword.this,"Password do not match",Toast.LENGTH_SHORT).show();
                 }
                 user.updatePassword(password.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -110,4 +111,17 @@ public class resetpassword extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onStart() {
+        IntentFilter filter =new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver);
+        super.onDestroy();
+    }
+
 }

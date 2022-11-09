@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,12 +15,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.lang.reflect.Array;
@@ -28,6 +32,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import dhairyapandya.com.vanservice2.R;
+import dhairyapandya.com.vanservice2.customer.locationdetails;
+import dhairyapandya.com.vanservice2.miscellaneous.NetworkChangeReceiver;
 
 public class vehicaldetails extends AppCompatActivity {
     FirebaseAuth fAuth;
@@ -36,13 +42,14 @@ public class vehicaldetails extends AppCompatActivity {
     private static final String TAG = "OK";
     String selectedcity, selectedvehicle, did;
     String Name, Mobileno, email, password, usertype;
-    Button stops, next, back;
+    ImageButton next, back;
+    Button stops;
     String[] citylist = {"Select your route City", "Anand", "Ahmedabad", "Nadiad", "Vadodara"};
     String[] vehiclelist = {"Select type of vehicle", "van", "Bus", "Riksha"};
+    NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
 
     String[] listItems;
     boolean[] checkedItems;
-    //    String[] stopslist = {};
     ArrayList<String> stopslist = new ArrayList<String>();
     EditText placeofliving, modle, colour, registrationplate, cost;
     ArrayList<Integer> mUserItems = new ArrayList<>();
@@ -61,20 +68,9 @@ public class vehicaldetails extends AppCompatActivity {
         cost = findViewById(R.id.costt);
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
-//        ArrayList<String> commingcustomersarraylist = new ArrayList<String>();
-        Array commingcustomersarraylist[]={};
-        Array registeredstudentslist[]={};
-////        getting the data from previous activity
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            Name = extras.getString("Name");
-//            Mobileno = extras.getString("Mobile Number");
-//            email = extras.getString("Mail ID");
-//            password = extras.getString("Password");
-//            Typeofuser = extras.getString("typeofuser");
-//
-//            //The key argument here must match that used in the other activity
-//        }
+        Array commingcustomersarraylist[] = {};
+        Array registeredstudentslist[] = {};
+
 
         SharedPreferences prefs = getSharedPreferences("Van Service users data", MODE_PRIVATE);
         String Name = prefs.getString("Name", "XXX");
@@ -85,10 +81,8 @@ public class vehicaldetails extends AppCompatActivity {
         Log.e("Status", "Data received from shared preference");
 
 
-        //"Blank Name" the default value.
 
 
-        //spinner work
         //typeof vehicle
         //spinner work
         ArrayAdapter adp1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, vehiclelist);
@@ -100,10 +94,8 @@ public class vehicaldetails extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
-//                    txt.setText("");
                     Toast.makeText(vehicaldetails.this, "Please Select a valid Vehicle", Toast.LENGTH_SHORT).show();
                 } else {
-//                    txt.setText(country[i]);
                     selectedvehicle = vehiclelist[i];
 
                 }
@@ -126,10 +118,8 @@ public class vehicaldetails extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
-//                    txt.setText("");
                     Toast.makeText(vehicaldetails.this, "Please Select a valid city", Toast.LENGTH_SHORT).show();
                 } else {
-//                    txt.setText(country[i]);
                     selectedcity = citylist[i];
                     if (selectedcity.equals("Anand")) {
                         listItems = getResources().getStringArray(R.array.anandstops);
@@ -145,7 +135,7 @@ public class vehicaldetails extends AppCompatActivity {
                         listItems = getResources().getStringArray(R.array.vadodarastops);
 
                     } else {
-                        Toast.makeText(vehicaldetails.this, "Gadbad hai bhai code mae", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(vehicaldetails.this, "Gadbad hai bhai code mae", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -181,13 +171,9 @@ public class vehicaldetails extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         for (int i = 0; i < mUserItems.size(); i++) {
-//                            stopslist = stopslist + listItems[mUserItems.get(i)];
                             stopslist.add(listItems[mUserItems.get(i)]);
-//                            if (i != mUserItems.size() - 1) {
-//                                stopslist = stopslist + ", ";
-//                            }
+
                         }
-//                        mItemSelected.setText(item);
                         Toast.makeText(vehicaldetails.this, stopslist.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -205,7 +191,6 @@ public class vehicaldetails extends AppCompatActivity {
                         for (int i = 0; i < checkedItems.length; i++) {
                             checkedItems[i] = false;
                             mUserItems.clear();
-//                            mItemSelected.setText("");
                         }
                     }
                 });
@@ -217,12 +202,27 @@ public class vehicaldetails extends AppCompatActivity {
         });
 
 
-
-
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Data validation
+                if (selectedcity.isEmpty()) {
+                    Toast.makeText(vehicaldetails.this, "Select Appropriate city", Toast.LENGTH_SHORT).show();
+                }if (selectedvehicle.isEmpty()) {
+                    Toast.makeText(vehicaldetails.this, "Select Appropriate vehicle", Toast.LENGTH_SHORT).show();
+                }if (colour.getText().toString().isEmpty()) {
+                    Toast.makeText(vehicaldetails.this, "Enter Appropriate Color", Toast.LENGTH_SHORT).show();
+                }if (modle.getText().toString().isEmpty()) {
+                    Toast.makeText(vehicaldetails.this, "Enter Appropriate Modle", Toast.LENGTH_SHORT).show();
+                }if (registrationplate.getText().toString().isEmpty()) {
+                    Toast.makeText(vehicaldetails.this, "Enter Appropriate PLante number", Toast.LENGTH_SHORT).show();
+                }if (cost.getText().toString().isEmpty()) {
+                    Toast.makeText(vehicaldetails.this, "Enter Appropriate Cost", Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(vehicaldetails.this, "Data validated", Toast.LENGTH_SHORT).show();
+
+
+
                 //putting data to firestore
                 did = fAuth.getCurrentUser().getUid();
                 DocumentReference documentReference = fstore.collection("Drivers").document(did);
@@ -230,21 +230,20 @@ public class vehicaldetails extends AppCompatActivity {
                 user.put("Name", Name);
                 user.put("MobileNumber", Mobileno);
                 user.put("MailID", email);
+                user.put("Time Driver Log in :", FieldValue.serverTimestamp());
                 user.put("Password", password);
                 user.put("City", selectedcity);
                 user.put("Vehical", selectedvehicle);
                 user.put("Typeofuser", usertype);
-//                user.put("Color of vehical", colour);
                 user.put("Modleofvehical", modle.getText().toString());
                 user.put("Platenumberofvehical", registrationplate.getText().toString());
                 user.put("Colorofvehical", colour.getText().toString());
                 user.put("BusStopsSelectedbydriver", stopslist);
                 user.put("Cost", cost.getText().toString());
                 user.put("Did", did);
-                user.put("Commingstudents",Arrays.asList(commingcustomersarraylist));
-user.put("Registeredstudenrs",Arrays.asList(registeredstudentslist));
+                user.put("Commingstudents", Arrays.asList(commingcustomersarraylist));
+                user.put("Registeredstudents", Arrays.asList(registeredstudentslist));
 
-//                        user.put("Pickup point",pickuppoint);
 
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -263,6 +262,7 @@ user.put("Registeredstudenrs",Arrays.asList(registeredstudentslist));
 
                         Log.d(TAG, "onSucess: user Profile is created for " + did);
                         Toast.makeText(getApplicationContext(), "Ho gaya ", Toast.LENGTH_SHORT).show();
+
                         Intent i = new Intent(vehicaldetails.this, drivershomepage.class);
                         startActivity(i);
 
@@ -275,5 +275,18 @@ user.put("Registeredstudenrs",Arrays.asList(registeredstudentslist));
         });
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter =new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(networkChangeReceiver);
+        super.onDestroy();
     }
 }

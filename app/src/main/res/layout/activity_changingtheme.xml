@@ -47,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:fontFamily="@font/ttnormspromedium"
             android:layout_marginBottom="44dp"
             android:layout_weight="1"
             android:text="Dark Mode enhances Visual Ergonomics"
@@ -61,6 +62,8 @@
             android:id="@+id/lightmode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ttnormspromedium"
+
             android:layout_margin="5dp"
             android:layout_marginBottom="44dp"
             android:layout_weight="1"
@@ -79,8 +82,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="60dp"
-        android:backgroundTint="#89C385"
+        android:backgroundTint="@color/purple_700"
         android:text="Change Theme"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/animation_view2"
         app:layout_constraintEnd_toEndOf="parent"

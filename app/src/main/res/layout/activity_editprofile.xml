@@ -32,6 +32,8 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="@+id/profilepicture"
+        android:fontFamily="@font/ttnormspromedium"
+
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/profilepicture"
         app:layout_constraintTop_toBottomOf="@+id/profilepicture">
@@ -41,6 +43,8 @@
             android:layout_width="match_parent"
             android:id="@+id/ename"
             android:layout_height="match_parent"
+            android:fontFamily="@font/ttnormspromedium"
+
             android:inputType="textPersonName"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -50,6 +54,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="@+id/name"
         app:layout_constraintHorizontal_bias="0.0"
@@ -60,6 +66,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emobilenumber"
             android:layout_width="match_parent"
+            android:fontFamily="@font/ttnormspromedium"
+
             android:layout_height="match_parent"
             android:inputType="text|phone"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -71,6 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/ttnormspromedium"
+
         app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="@+id/mobilenumber"
         app:layout_constraintHorizontal_bias="1.0"
@@ -83,6 +93,8 @@
             android:id="@+id/eemailaddress"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/ttnormspromedium"
+
             android:inputType="textEmailAddress"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -93,6 +105,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="77dp"
         android:text="Save"
+        android:fontFamily="@font/ttnormspromedium"
+
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
