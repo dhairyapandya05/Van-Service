@@ -9,6 +9,16 @@ Zeep Service is an 📱 application used for students as well as students who co
 
 Through the app, drivers can receive notifications regarding the total number of customers on the next trip as well as customers can accept or reject upcoming rides through notifications. Customers and drivers can register their complaints through the app's Whatsapp bot, which can be monitored by the support team in the near future. The data is represented through dashboards to get a clear idea of the users of the app.🚗🚌
 In case of any crash app also has crashlytics which checks for any accidental errors if any and generates a full report of the crash that occurred in the app, the phone model that was used by the user during that crash, the time, and also exactly the line of the code in which the application got crashed. All the automation part is implemented by Quickwork which is Mumbai based automation company.🚗🚌
+
+## Highlights
+
+- **Integrated WhatsApp messaging via QuickWork** and utilized the Google Sheets API to build interactive dashboards for enhanced data visualization.
+- **Implemented a SaaS architecture using Google Firebase**, harnessing the capabilities of the Firebase ecosystem.
+- **Designed an intuitive, user-friendly interface with Material UI**, facilitating easy trip approvals and cancellations.
+- **Integrated a Dialogflow NLP chatbot** tailored to customer intents, extracting crucial entities from order responses, and seamlessly integrating with Google Calendar to schedule events.
+- **Implemented various design patterns** including Adapter, Builder, and Singleton for efficient database connection management and scalable application architecture.
+
+
 ## Features
 
 - Android Studio
