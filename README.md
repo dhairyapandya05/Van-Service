@@ -12,11 +12,11 @@ In case of any crash app also has crashlytics which checks for any accidental er
 
 ## Highlights
 
-- **Integrated WhatsApp messaging via QuickWork** and utilized the Google Sheets API to build interactive dashboards for enhanced data visualization.
-- **Implemented a SaaS architecture using Google Firebase**, harnessing the capabilities of the Firebase ecosystem.
-- **Designed an intuitive, user-friendly interface with Material UI**, facilitating easy trip approvals and cancellations.
-- **Integrated a Dialogflow NLP chatbot** tailored to customer intents, extracting crucial entities from order responses, and seamlessly integrating with Google Calendar to schedule events.
-- **Implemented various design patterns** including Adapter, Builder, and Singleton for efficient database connection management and scalable application architecture.
+- Integrated **WhatsApp messaging** via **QuickWork** and utilized the **Google Sheets API** to build interactive dashboards for enhanced data visualization.
+- Implemented a SaaS architecture using **Google Firebase**, harnessing the capabilities of the Firebase ecosystem.
+- Designed an intuitive interface with **Material UI**, facilitating easy trip approvals and cancellations.
+- Integrated a **Dialogflow NLP chatbot** tailored to customer intents, extracting crucial entities from order responses, and seamlessly integrating with Google Calendar to schedule events.
+- Implemented various design patterns including **Adapter, Builder**, and **Singleton** for efficient database connection management and scalable application architecture.
 
 
 ## Features
