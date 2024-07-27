@@ -28,12 +28,22 @@ In case of any crash app also has crashlytics which checks for any accidental er
 - Smart UI
 
 ## Screenshots
-<a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122554-47a74b10-7c5a-4af1-8689-ed9f536fde99.jpg" alt="dhairyapandya"  width="500" /></a>
-<a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122571-a17ae640-7808-42e3-87c0-f24bb21c2b56.jpg" alt="dhairyapandya"  width="500" /></a>
+<table>
+  <tr>
+    <td><a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122554-47a74b10-7c5a-4af1-8689-ed9f536fde99.jpg" alt="dhairyapandya"  width="500" /></a></td>
+    <td><a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122571-a17ae640-7808-42e3-87c0-f24bb21c2b56.jpg" alt="dhairyapandya"  width="500" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122616-70336c73-e0e4-42c9-a61b-47a5cf5da274.jpg" alt="dhairyapandya"  width="500" /></a></td>
+    <td><a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122635-1ba57ddf-2eea-4769-bf80-4d482a0a61ea.jpg" alt="dhairyapandya"  width="500" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122649-bfc0ac42-1d44-4eb8-b5fd-512e0c8457f3.jpg" alt="dhairyapandya"  width="500" /></a></td>
+    <td><a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122659-9bdae4c7-ba4d-4a0f-9307-42b0bde6dea4.jpg" alt="dhairyapandya"  width="500" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122704-b57430d6-75e0-42d8-b65e-7c4ce4063bb7.jpg" alt="dhairyapandya"  width="500" /></a></td>
+    <td><a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122716-5901a601-ada6-45fa-9ca3-85f6387e94eb.jpg" alt="dhairyapandya"  width="500" /></a></td>
+  </tr>
+</table>
 
-<a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122616-70336c73-e0e4-42c9-a61b-47a5cf5da274.jpg" alt="dhairyapandya"  width="500" /></a>
-<a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122635-1ba57ddf-2eea-4769-bf80-4d482a0a61ea.jpg" alt="dhairyapandya"  width="500" /></a>
-<a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122649-bfc0ac42-1d44-4eb8-b5fd-512e0c8457f3.jpg" alt="dhairyapandya"  width="500" /></a>
-<a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122659-9bdae4c7-ba4d-4a0f-9307-42b0bde6dea4.jpg" alt="dhairyapandya"  width="500" /></a>
-<a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122704-b57430d6-75e0-42d8-b65e-7c4ce4063bb7.jpg" alt="dhairyapandya"  width="500" /></a>
-<a href="https://linkedin.com/in/dhairyapandya" target="blank"><img align="center" src="https://user-images.githubusercontent.com/75428863/224122716-5901a601-ada6-45fa-9ca3-85f6387e94eb.jpg" alt="dhairyapandya"  width="500" /></a>
