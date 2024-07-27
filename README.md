@@ -51,7 +51,7 @@ In case of any crash app also has crashlytics which checks for any accidental er
 
 Your privacy is important to us. To understand how we collect, use, and protect your information, please review our detailed Privacy Policy on our website.
 
-[Read our Privacy Policy]([https://yourwebsite.com/privacy-policy](https://sites.google.com/view/vanserviceprivacypolicy/about?authuser=1))
+[Read our Privacy Policy](https://yourwebsite.com/privacy-policy)
 
 If you have any questions, feel free to contact us at [dhairyapandya05@gmail.com].
 
