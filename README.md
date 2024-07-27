@@ -1,6 +1,7 @@
 
 # Zeep Service
 
+![ezgif-frame-004](https://github.com/user-attachments/assets/c97f6b96-7f10-4d37-8376-75969ad89c33)
 
 
 ## Description
@@ -55,4 +56,33 @@ Your privacy is important to us. To understand how we collect, use, and protect 
 
 If you have any questions, feel free to contact us at [dhairyapandya05@gmail.com].
 
+## WhatsApp Messaging Automation
+
+We've implemented automated WhatsApp messaging using Gupshup and Quickwork Messaging to enhance communication efficiency.
+
+### Key Features:
+
+- **Seamless Integration:** Gupshup API and Quickwork automate message workflows.
+- **Automated Notifications:** Real-time updates, reminders, and alerts.
+- **Interactive Messaging:** Users can respond directly; automated replies improve engagement.
+- **Complaint Management:** Track and manage complaints efficiently through WhatsApp.
+- **Data Analytics:** Monitor message delivery and user interactions with comprehensive analytics.
+- **Security:** Secure and compliant communications.
+
+![screencapture-automation-quickwork-co-connections-634f1442f6e61740c82be339-2024-07-28-04_05_25](https://github.com/user-attachments/assets/3ba1ddac-bcde-49ea-9e25-507d85df4300)
+
+![screencapture-automation-quickwork-co-2024-07-28-04_05_10](https://github.com/user-attachments/assets/fdc32af1-97b3-4f70-9db6-0058580db517)
+
+![screencapture-automation-quickwork-co-2024-07-28-04_04_30](https://github.com/user-attachments/assets/6db2acc5-c80e-4121-894a-d7e1621d64b0)
+
+![screencapture-automation-quickwork-co-2024-07-28-03_59_39](https://github.com/user-attachments/assets/dd9d9efb-1d8f-424f-b92a-7d7e0a78b7f2)
+
+###Results
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/69681f04-c715-4a1c-9e10-c561e7280fd4" alt="WhatsApp Image 2024-07-28 at 05 03 53_3431c458" width="500"/></td>
+    <td><img src="https://github.com/user-attachments/assets/afe88d1b-0460-47c4-bf21-5eb3bda33a8e" alt="WhatsApp Image 2024-07-28 at 05 03 53_93c5bd9d" width="500"/></td>
+  </tr>
+</table>
 
