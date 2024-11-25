@@ -18,7 +18,7 @@ Checkout Video Demo: [Video Demo](https://youtu.be/m9zD_PR5E1Q)
 - Crash Monitoring: Integrated Crashlytics ensures swift error detection and reporting, pinpointing issues to enhance app reliability.
 - Automation: Supported by Quickwork, a leading automation solution, for smooth backend operations.
 
-
+![ezgif-frame-004](https://github.com/user-attachments/assets/c97f6b96-7f10-4d37-8376-75969ad89c33)
 ## Screenshots
 
 ![2](https://github.com/user-attachments/assets/031624f1-f017-49e5-8dcc-33c88984b37b)
