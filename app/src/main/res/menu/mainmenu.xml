@@ -4,10 +4,10 @@
 
 
     <item android:title="Rate us"
-        android:id="@+id/m3"/>
-    <item android:title="Settings"
         android:id="@+id/m1"/>
-    <item android:title="Profile"
+    <item android:title="Settings"
         android:id="@+id/m2"/>
+    <item android:title="Profile"
+        android:id="@+id/m3"/>
 
 </menu>

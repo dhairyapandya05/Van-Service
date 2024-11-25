@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sbackground"
+    android:background="@color/purple_200"
     tools:context=".driver.vehicaldetails">
 
     <TextView
@@ -13,11 +13,11 @@
         android:layout_height="51dp"
         android:layout_marginTop="24dp"
         android:text="Register"
-        android:textColor="@color/black"
-        android:textSize="36dp"
-        android:fontFamily="@font/ttnormspromedium"
+        android:textColor="@color/purple_700"
+        android:textSize="36sp"
 
-        android:textStyle="bold"
+
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,11 +29,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Vehicle Details"
-        android:textColor="@color/black"
-        android:textSize="32dp"
-        android:fontFamily="@font/ttnormspromedium"
+        android:textColor="@color/purple_700"
+        android:textSize="28sp"
 
-        android:textStyle="normal"
+
+
         app:layout_constraintEnd_toEndOf="@+id/Signuptitle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/Signuptitle"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:fontFamily="@font/ttnormspromedium"
+
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,12 +72,13 @@
                 android:layout_height="wrap_content"
                 android:text="City Route"
                 android:textSize="24sp"
-                android:fontFamily="@font/ttnormspromedium"
+                android:textColor="@color/purple_700"
                 app:layout_constraintBaseline_toBaselineOf="@+id/spinner1"
                 app:layout_constraintEnd_toEndOf="@+id/Userdetails"
                 app:layout_constraintStart_toStartOf="@+id/Userdetails" />
 
             <Spinner
+
                 android:id="@+id/cityroute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:text="Type of Vehicle"
                 android:textSize="24sp"
-                android:fontFamily="@font/ttnormspromedium"
+                android:textColor="@color/purple_700"
                 app:layout_constraintBaseline_toBaselineOf="@+id/spinner1"
                 app:layout_constraintEnd_toEndOf="@+id/Userdetails"
                 app:layout_constraintStart_toStartOf="@+id/Userdetails" />
@@ -123,107 +124,111 @@
                 app:layout_constraintTop_toBottomOf="@+id/Userdetails" />
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/modleno"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/eModle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/button_bg"
-            android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
-            android:drawablePadding="20dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="20dp"
             android:hint="Modle number"
-            android:fontFamily="@font/ttnormspromedium"
+            android:textColorHint="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/Signuptitle1">
 
-            android:inputType="text"
-            android:padding="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/modleno"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-        <EditText
-            android:id="@+id/colorofthevehicle"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ecolorofveh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/button_bg"
-            android:drawableLeft="@drawable/ic_baseline_color_lens_24"
-            android:drawablePadding="20dp"
-            android:hint="Color of the vehicle"
-            android:inputType="text"
-            android:padding="15dp"
-            android:fontFamily="@font/ttnormspromedium"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="20dp"
+            android:hint="Color of Vehicle"
+            android:textColorHint="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/Signuptitle1">
 
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/modleno"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/modleno"
-            app:layout_constraintTop_toBottomOf="@+id/modleno" />
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/colorofthevehicle"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
-        <EditText
-            android:id="@+id/platenumber"
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/eplate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/button_bg"
-            android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
-            android:drawablePadding="20dp"
-            android:fontFamily="@font/ttnormspromedium"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="20dp"
+            android:hint="Registered Plate Number"
+            android:textColorHint="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/Signuptitle1">
 
-            android:hint="Registered Plate number"
-            android:inputType="textCapCharacters"
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/platenumber"
+                android:layout_width="match_parent"
+                android:inputType="textCapCharacters"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
-            android:padding="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/colorofthevehicle"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/colorofthevehicle"
-            app:layout_constraintTop_toBottomOf="@+id/colorofthevehicle" />
+        </com.google.android.material.textfield.TextInputLayout>
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/selectstops"
-    android:fontFamily="@font/ttnormspromedium"
-
+    android:layout_marginTop="25dp"
+android:textAllCaps="false"
     android:layout_marginBottom="15dp"
 android:text="Select Stops"
     />
-        <EditText
-            android:id="@+id/costt"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ecost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/button_bg"
-            android:drawableLeft="@drawable/ic_baseline_confirmation_number_24"
-            android:drawablePadding="20dp"
-            android:fontFamily="@font/ttnormspromedium"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="20dp"
+            android:hint="Charges"
+            android:textColorHint="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/Signuptitle1">
 
-            android:hint="Cahrge of the Ride"
-            android:inputType="numberSigned"
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/costt"
+                android:layout_width="match_parent"
+                android:inputType="textCapCharacters"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
-            android:padding="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/colorofthevehicle"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/colorofthevehicle"
-            app:layout_constraintTop_toBottomOf="@+id/colorofthevehicle" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:gravity="center"
-
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -231,14 +236,11 @@ android:text="Select Stops"
 
             <ImageButton
                 android:id="@+id/previous"
-                android:layout_width="56dp"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_below="@+id/Cpassword"
                 android:layout_marginRight="200dp"
-                android:background="@drawable/backbtn"
-                android:drawableLeft="@drawable/ic_baseline_west_24"
-                android:elevation="35dp"
-                android:padding="15dp"
+                android:background="@drawable/prev_button_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -248,56 +250,12 @@ android:text="Select Stops"
                 android:layout_width="56dp"
                 android:layout_height="60dp"
                 android:layout_below="@+id/Cpassword"
-                android:background="@drawable/forwardbtn"
-                android:drawableLeft="@drawable/ic_baseline_east_24"
-                android:elevation="35dp"
-                android:padding="15dp"
+                android:background="@drawable/next_button_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
     </LinearLayout>
-
-
-    <!--    <LinearLayout-->
-    <!--        android:id="@+id/socialicon"-->
-    <!--        android:layout_width="173dp"-->
-    <!--        android:layout_height="55dp"-->
-    <!--        android:layout_below="@+id/Cpassword"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="@+id/Cpassword"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="@+id/Cpassword"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/Cpassword"-->
-    <!--        app:layout_constraintVertical_bias="0.125">-->
-
-
-    <!--        <ImageView-->
-    <!--            android:id="@+id/google"-->
-    <!--            android:layout_width="48dp"-->
-    <!--            android:layout_height="48dp"-->
-    <!--            android:layout_margin="2dp"-->
-    <!--            android:background="@drawable/button_bg"-->
-    <!--            android:src="@drawable/google" />-->
-
-    <!--        <ImageView-->
-    <!--            android:id="@+id/facebook"-->
-    <!--            android:layout_width="48dp"-->
-    <!--            android:layout_height="48dp"-->
-    <!--            android:layout_margin="2dp"-->
-    <!--            android:background="@drawable/button_bg"-->
-    <!--            android:src="@drawable/facebook" />-->
-
-    <!--        <ImageView-->
-    <!--            android:id="@+id/twitter"-->
-    <!--            android:layout_width="45dp"-->
-    <!--            android:layout_height="38dp"-->
-    <!--            android:layout_margin="2dp"-->
-    <!--            android:background="@drawable/button_bg"-->
-    <!--            android:src="@drawable/twitter" />-->
-
-    <!--    </LinearLayout>-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

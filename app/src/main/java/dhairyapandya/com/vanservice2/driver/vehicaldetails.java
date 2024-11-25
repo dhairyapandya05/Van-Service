@@ -40,7 +40,7 @@ public class vehicaldetails extends AppCompatActivity {
     FirebaseFirestore fstore;
     Spinner cityroute, typeofvehicle;
     private static final String TAG = "OK";
-    String selectedcity, selectedvehicle, did;
+    String selectedcity, selectedvehicle, uid;
     String Name, Mobileno, email, password, usertype;
     ImageButton next, back;
     Button stops;
@@ -94,7 +94,6 @@ public class vehicaldetails extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
-                    Toast.makeText(vehicaldetails.this, "Please Select a valid Vehicle", Toast.LENGTH_SHORT).show();
                 } else {
                     selectedvehicle = vehiclelist[i];
 
@@ -118,7 +117,6 @@ public class vehicaldetails extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
-                    Toast.makeText(vehicaldetails.this, "Please Select a valid city", Toast.LENGTH_SHORT).show();
                 } else {
                     selectedcity = citylist[i];
                     if (selectedcity.equals("Anand")) {
@@ -135,7 +133,6 @@ public class vehicaldetails extends AppCompatActivity {
                         listItems = getResources().getStringArray(R.array.vadodarastops);
 
                     } else {
-//                        Toast.makeText(vehicaldetails.this, "Gadbad hai bhai code mae", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -174,7 +171,6 @@ public class vehicaldetails extends AppCompatActivity {
                             stopslist.add(listItems[mUserItems.get(i)]);
 
                         }
-                        Toast.makeText(vehicaldetails.this, stopslist.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -207,25 +203,18 @@ public class vehicaldetails extends AppCompatActivity {
             public void onClick(View view) {
                 //Data validation
                 if (selectedcity.isEmpty()) {
-                    Toast.makeText(vehicaldetails.this, "Select Appropriate city", Toast.LENGTH_SHORT).show();
                 }if (selectedvehicle.isEmpty()) {
-                    Toast.makeText(vehicaldetails.this, "Select Appropriate vehicle", Toast.LENGTH_SHORT).show();
                 }if (colour.getText().toString().isEmpty()) {
-                    Toast.makeText(vehicaldetails.this, "Enter Appropriate Color", Toast.LENGTH_SHORT).show();
                 }if (modle.getText().toString().isEmpty()) {
-                    Toast.makeText(vehicaldetails.this, "Enter Appropriate Modle", Toast.LENGTH_SHORT).show();
                 }if (registrationplate.getText().toString().isEmpty()) {
-                    Toast.makeText(vehicaldetails.this, "Enter Appropriate PLante number", Toast.LENGTH_SHORT).show();
                 }if (cost.getText().toString().isEmpty()) {
-                    Toast.makeText(vehicaldetails.this, "Enter Appropriate Cost", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(vehicaldetails.this, "Data validated", Toast.LENGTH_SHORT).show();
 
 
 
                 //putting data to firestore
-                did = fAuth.getCurrentUser().getUid();
-                DocumentReference documentReference = fstore.collection("Drivers").document(did);
+                uid = fAuth.getCurrentUser().getUid();
+                DocumentReference documentReference = fstore.collection("Driver").document(uid);
                 Map<String, Object> user = new HashMap<>();
                 user.put("Name", Name);
                 user.put("MobileNumber", Mobileno);
@@ -240,7 +229,8 @@ public class vehicaldetails extends AppCompatActivity {
                 user.put("Colorofvehical", colour.getText().toString());
                 user.put("BusStopsSelectedbydriver", stopslist);
                 user.put("Cost", cost.getText().toString());
-                user.put("Did", did);
+                user.put("uid", uid);
+                user.put("imageUrl","https://firebasestorage.googleapis.com/v0/b/van-service-75a7d.appspot.com/o/General%2Fman.png?alt=media&token=22d98403-9810-4b06-a605-797092e91553");
                 user.put("Commingstudents", Arrays.asList(commingcustomersarraylist));
                 user.put("Registeredstudents", Arrays.asList(registeredstudentslist));
 
@@ -256,12 +246,11 @@ public class vehicaldetails extends AppCompatActivity {
                         editor.putString("Plate number of vehical", registrationplate.getText().toString());
                         editor.putString("BusStops Selected by driver", stopslist.toString());
                         editor.putString("Cost", cost.getText().toString());
-                        editor.putString("Did", did);
+                        editor.putString("uid", uid);
                         editor.apply();
                         Log.e("Status", "Data added to shared preference");
 
-                        Log.d(TAG, "onSucess: user Profile is created for " + did);
-                        Toast.makeText(getApplicationContext(), "Ho gaya ", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "onSucess: user Profile is created for " + uid);
 
                         Intent i = new Intent(vehicaldetails.this, drivershomepage.class);
                         startActivity(i);

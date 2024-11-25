@@ -84,7 +84,6 @@ public class changingtheme extends AppCompatActivity {
 //        public void run()
 //
 //        {
-//            Toast.makeText(changingtheme.this,"in runnable",Toast.LENGTH_SHORT).show();
 //
 //            changingtheme.this.mHandler.postDelayed(m_Runnable,2000);
 //        }

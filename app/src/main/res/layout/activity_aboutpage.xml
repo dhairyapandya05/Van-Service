@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     tools:context=".miscellaneous.aboutpage">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF">
+            android:background="#FFF3CD ">
             <com.shashank.sony.fancyaboutpagelib.FancyAboutPage
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

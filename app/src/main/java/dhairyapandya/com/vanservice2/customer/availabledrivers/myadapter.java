@@ -1,5 +1,6 @@
 package dhairyapandya.com.vanservice2.customer.availabledrivers;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import dhairyapandya.com.vanservice2.R;
 import dhairyapandya.com.vanservice2.miscellaneous.RecyclerViewInterface;
 
 public class myadapter extends RecyclerView.Adapter<myadapter.MyViewHolder>{
 private final RecyclerViewInterface recyclerViewInterface;
-
     ArrayList<modledriversdetails> userarraylist;
 public boolean showshm=true;
     public myadapter(ArrayList<modledriversdetails> userarraylist,RecyclerViewInterface recyclerViewInterface) {
@@ -61,6 +63,11 @@ public boolean showshm=true;
 
         else{
             modledriversdetails abc =userarraylist.get(position);
+            Glide.with(holder.itemView.getContext())
+                    .load(abc.getImageUrl())
+                    .placeholder(R.drawable.driver) // Optional: placeholder while loading
+                    .error(R.drawable.man)       // Optional: image on error
+                    .into(holder.imgView);
             holder.name.setBackground(null);
             holder.name.setText(abc.getName());
             holder.charge.setBackground(null);
@@ -106,6 +113,7 @@ public boolean showshm=true;
         TextView name,charge,email,mobile,vehical,plateno,color,modle;
         LinearLayout L1,L2,L3,L4,L5,L6;
         TextView etxt,mtxt,vtxt,ptxt,ctxt,motxt;
+        CircleImageView imgView;
         ShimmerFrameLayout shm;
         List<String> commers;
         public MyViewHolder(@NonNull View itemView , RecyclerViewInterface recyclerViewInterface) {
@@ -116,6 +124,7 @@ public boolean showshm=true;
             ptxt=itemView.findViewById(R.id.platenumbertxt);
             ctxt=itemView.findViewById(R.id.colortxt);
             motxt=itemView.findViewById(R.id.modletxt);
+            imgView=itemView.findViewById(R.id.image);
             L1=itemView.findViewById(R.id.l1);
             L2=itemView.findViewById(R.id.l2);
             L3=itemView.findViewById(R.id.l3);

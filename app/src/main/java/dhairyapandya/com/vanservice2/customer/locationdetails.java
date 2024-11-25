@@ -49,26 +49,23 @@ ArrayAdapter<String> adpt;
         arrlistcity.add("Ahmedabad");
         arrlistcity.add("Vadodara");
         anandpt=new ArrayList<>();
-        anandpt.add("Central Bus Station Anand");
-        anandpt.add("Makarpura Central Bus Station Anand");
-        anandpt.add("City Bus Depot Anand");
-        anandpt.add("Anand Bus Station");
-        anandpt.add("Dashrath Bus Station Anand");
-        anandpt.add("Vinayak City Bus Service Anand");
-        anandpt.add("Anand city bus station");
-        anandpt.add("Makarpura Naka Anand");
-        anandpt.add("Central Bus Depot Anand");
+        anandpt.add("Central Bus Station");
+        anandpt.add("City Bus Depot");
+        anandpt.add("Makarpura Central Bus Station");
+        anandpt.add("Ashoka Temple");
+        anandpt.add("Vinayak Guest House");
+
 
         nadiadpt=new ArrayList<>();
-        nadiadpt.add("Central Bus Station Nadiad");
-        nadiadpt.add("Makarpura Central Bus Station Nadiad");
-        nadiadpt.add("City Bus Depot Nadiad");
+        nadiadpt.add("Central Bus Station");
+        nadiadpt.add("Makarpura Central");
+        nadiadpt.add("City Bus Depot");
         nadiadpt.add("Nadiad Bus Station");
-        nadiadpt.add("Dashrath Bus Station Nadiad");
-        nadiadpt.add("Vinayak City Bus Service Nadiad");
+        nadiadpt.add("Dashrath Bus Station");
+        nadiadpt.add("Vinayak City");
         nadiadpt.add("Nadiad city bus station");
-        nadiadpt.add("Makarpura Naka Nadiad");
-        nadiadpt.add("Central Bus Depot Nadiad");
+        nadiadpt.add("Makarpura Naka");
+        nadiadpt.add("Central Bus Depot");
 
         vadodarapt=new ArrayList<>();
         vadodarapt.add("Central Bus Station Vadodara");
@@ -106,11 +103,8 @@ ArrayAdapter<String> adpt;
             public void onClick(View view) {
                 //Validate data
                 if (userselectedcity.isEmpty()) {
-                    Toast.makeText(locationdetails.this, "Select Appropriate city", Toast.LENGTH_SHORT).show();
                 }if (userselectedboardingpoint.isEmpty()) {
-                    Toast.makeText(locationdetails.this, "Select Appropriate Boarding Point", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(locationdetails.this, "Data validated", Toast.LENGTH_SHORT).show();
 
 
                 //STORE DETAILS IN SHARED PREFERENCES
@@ -145,26 +139,21 @@ ArrayAdapter<String> adpt;
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                 userselectedcity = arrlistcity.get(i);
-                Toast.makeText(locationdetails.this, arrlistcity.get(i).toString(), Toast.LENGTH_SHORT).show();
 
                 if (userselectedcity.toString().equals("Anand")) {
                     adpt = new ArrayAdapter(locationdetails.this, android.R.layout.simple_spinner_item, anandpt);
 
                 } else if (userselectedcity.toString().equals("Nadiad")) {
                     adpt = new ArrayAdapter(locationdetails.this, android.R.layout.simple_spinner_item, nadiadpt);
-//                    Toast.makeText(locationdetails.this, "User city"+userselectedcity, Toast.LENGTH_SHORT).show();
 
                 } else if (userselectedcity.toString().equals("Ahmedabad")) {
                     adpt = new ArrayAdapter(locationdetails.this, android.R.layout.simple_spinner_item, ahmedabadpt);
-//                    Toast.makeText(locationdetails.this, "User city"+userselectedcity, Toast.LENGTH_SHORT).show();
 
                 } else if (userselectedcity.toString().equals("Vadodara")) {
                     adpt = new ArrayAdapter(locationdetails.this, android.R.layout.simple_spinner_item, vadodarapt);
-//                    Toast.makeText(locationdetails.this, "User city"+userselectedcity, Toast.LENGTH_SHORT).show();
 
                 }
                 else{
-                    Toast.makeText(locationdetails.this, "Something is fissi", Toast.LENGTH_SHORT).show();
                 }
                 adpt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 boarding.setAdapter(adpt);
@@ -173,7 +162,6 @@ ArrayAdapter<String> adpt;
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(locationdetails.this, "Please select a valid city", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -201,7 +189,6 @@ ArrayAdapter<String> adpt;
                     userselectedboardingpoint = vadodarapt.get(i);
 
                 } else {
-                    Toast.makeText(locationdetails.this, "Gadbad hai bhai code mae", Toast.LENGTH_SHORT).show();
                 }
 
                 }

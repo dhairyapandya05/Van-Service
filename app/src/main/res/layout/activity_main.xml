@@ -4,51 +4,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/purple_200"
     tools:context=".MainActivity">
 
 
-
-    <RadioGroup
-        android:id="@+id/radgrp"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="81dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/welcome1Message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="left"
+            android:text="Welcome to"
+            android:textColor="@color/purple_700"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.675" />
+
+        <TextView
+            android:id="@+id/welcomeMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rethinksansbold"
+            android:gravity="left"
+            android:text="Zeep Service"
+            android:textColor="@color/purple_700"
+            android:textSize="42sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.335" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/Customer"
-            android:fontFamily="@font/ttnormspromedium"
-
+        <!-- Title for the Login Choice -->
+        <TextView
+            android:id="@+id/loginTitle"
             android:layout_width="wrap_content"
-            android:buttonTint="@color/purple_700"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:checked="true"
-            android:text="Customer">
+            android:layout_marginBottom="36dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Choose Your Role"
+            android:textColor="@color/purple_700"
+            android:textSize="20sp" />
 
-        </RadioButton>
-
-        <RadioButton
-            android:id="@+id/Driver"
-            android:fontFamily="@font/ttnormspromedium"
-
-            android:layout_width="wrap_content"
-            android:buttonTint="@color/purple_700"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-            android:text="Driver">
+            <!-- Driver Image -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        </RadioButton>
+                <ImageView
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:src="@drawable/driver"
+                    app:layout_constraintHorizontal_chainStyle="spread" />
+
+            </LinearLayout>
+
+            <!-- Student Image -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:src="@drawable/man" />
 
 
-    </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/radgrp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.451">
+
+                <RadioButton
+                    android:id="@+id/Driver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/purple_700"
+                    android:text="Driver" />
+
+                <RadioButton
+                    android:id="@+id/Customer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/purple_700"
+                    android:checked="true"
+                    android:text="Student" />
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/nxtbtn"
@@ -57,14 +164,12 @@
         android:layout_gravity="right"
         android:layout_margin="40dp"
         android:layout_marginHorizontal="100dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/next_button_bg"
         android:drawableLeft="@drawable/ic_baseline_arrow_forward_24"
         android:scaleType="centerCrop"
-        android:src="@drawable/forwardbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radgrp"
-        app:layout_constraintVertical_bias="0.47" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.93" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-

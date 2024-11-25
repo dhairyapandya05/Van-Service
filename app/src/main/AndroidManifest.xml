@@ -16,6 +16,17 @@
         android:theme="@style/Theme.VanService"
         tools:targetApi="31">
         <activity
+            android:name=".ConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RatingView"
+            android:exported="false" />
+
+        <profileable
+            android:shell="true"
+            tools:targetApi="29" />
+
+        <activity
             android:name=".driver.viewpageradapter.tripprogress"
             android:exported="false">
             <meta-data
@@ -148,7 +159,9 @@
             <!-- <data -->
             <!-- android:host="" -->
             <!-- </intent-filter> -->
-
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
     </application>
 

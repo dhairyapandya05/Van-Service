@@ -4,41 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sbackground"
+    android:background="@color/purple_200"
     tools:context=".customer.locationdetails">
 
-
-    <TextView
-        android:id="@+id/Signuptitle"
-        android:layout_width="143dp"
-        android:layout_height="51dp"
-
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/ttnormsproblack"
-        android:text="Register"
-        android:textColor="@color/black"
-        android:textSize="36dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Userdetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/ttnormspromedium"
 
+        android:layout_marginTop="56dp"
         android:text="Location Details"
-        android:textColor="@color/black"
-        android:textSize="32dp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/Signuptitle"
-        app:layout_constraintTop_toBottomOf="@+id/Signuptitle" />
 
+        android:textColor="@color/purple_700"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -67,8 +52,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="City"
-                android:textSize="24sp"
-                android:fontFamily="@font/ttnormspromedium"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/purple_700"
+                android:textSize="18sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/spinner1"
                 app:layout_constraintEnd_toEndOf="@+id/Userdetails"
                 app:layout_constraintStart_toStartOf="@+id/Userdetails" />
@@ -77,10 +63,9 @@
                 android:id="@+id/cityspinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:tooltipText="SELECT cITY"
+                android:layout_marginRight="24dp"
+                android:tooltipText="Select City"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:fontFamily="@font/ttnormspromedium"
 
                 app:layout_constraintHorizontal_bias="0.754"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,8 +87,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Boarding point"
-                android:textSize="24sp"
-                android:fontFamily="@font/ttnormspromedium"
+                android:textColor="@color/purple_700"
+                android:textSize="18sp"
+                android:layout_marginLeft="15dp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/spinner"
                 app:layout_constraintEnd_toEndOf="@+id/Userdetails"
                 app:layout_constraintStart_toStartOf="@+id/Userdetails" />
@@ -112,9 +98,8 @@
                 android:id="@+id/boardingpointspinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:fontFamily="@font/ttnormspromedium"
 
                 app:layout_constraintHorizontal_bias="0.754"
                 app:layout_constraintStart_toStartOf="parent"
@@ -139,10 +124,7 @@
             android:layout_height="60dp"
             android:layout_below="@+id/Cpassword"
             android:layout_marginRight="200dp"
-            android:background="@drawable/backbtn"
-            android:drawableLeft="@drawable/ic_baseline_west_24"
-            android:elevation="35dp"
-            android:padding="15dp"
+            android:background="@drawable/prev_button_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -152,10 +134,7 @@
             android:layout_width="56dp"
             android:layout_height="60dp"
             android:layout_below="@+id/Cpassword"
-            android:background="@drawable/forwardbtn"
-            android:drawableLeft="@drawable/ic_baseline_east_24"
-            android:elevation="35dp"
-            android:padding="15dp"
+            android:background="@drawable/next_button_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />

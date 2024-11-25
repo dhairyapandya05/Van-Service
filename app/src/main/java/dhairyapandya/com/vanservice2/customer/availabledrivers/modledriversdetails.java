@@ -3,24 +3,33 @@ package dhairyapandya.com.vanservice2.customer.availabledrivers;
 import java.util.List;
 
 public class modledriversdetails {
-    String Name,Cost,Vehical,MobileNumber,MailID,Did,Modleofvehical,Platenumberofvehical,ColorofVehical;
+    String Name,Cost,Vehical,MobileNumber,MailID,uid,Modleofvehical,Platenumberofvehical,ColorofVehical,imageUrl;
     List<String> Commingstudents;
 
-    public String getDid() {
-        return Did;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setDid(String did) {
-        Did = did;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public modledriversdetails(String name, String cost, String vehical, String mobileNumber, String mailID, String did, String modleofvehical, String platenumberofvehical, String colorofVehical, List<String> commingstudents) {
+    public String getuid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public modledriversdetails(String name, String cost, String vehical, String mobileNumber, String mailID, String uid, String modleofvehical, String platenumberofvehical, String colorofVehical, List<String> commingstudents,String imageUrl) {
         Name = name;
         Cost = cost;
         Vehical = vehical;
         MobileNumber = mobileNumber;
         MailID = mailID;
-        Did = did;
+        this.uid = uid;
+        this.imageUrl=imageUrl;
         Modleofvehical = modleofvehical;
         Platenumberofvehical = platenumberofvehical;
         ColorofVehical = colorofVehical;

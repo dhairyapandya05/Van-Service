@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    android:background="@color/purple_200"
     android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -12,13 +12,27 @@
         app:cardUseCompatPadding="true"
         android:outlineSpotShadowColor="#000000"
         android:outlineAmbientShadowColor="#000000"
-        app:cardBackgroundColor="#ffffff"
+        app:cardBackgroundColor="@color/purple_200"
         app:cardCornerRadius="7dp">
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/shimmerlayout">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_marginHorizontal="4dp"/>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,9 +54,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/customername"
-            android:textStyle="bold"
+
             android:ellipsize="end"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:maxLines="1"
             android:background="@drawable/shimmerbg"
             android:text="Customername"/>
@@ -77,15 +91,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/citytxt"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
+
                         android:text="City"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/city"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:maxLines="1"
                         android:ellipsize="end"
 
@@ -106,8 +120,8 @@ android:layout_marginLeft="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/boardingpttxt"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
+
 
                         android:text="Boarding Pt."/>
 
@@ -115,7 +129,7 @@ android:layout_marginLeft="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/boardingpt"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:layout_marginLeft="5dp"
                         android:gravity="left"
 android:ellipsize="end"
@@ -144,8 +158,8 @@ android:id="@+id/linemail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/emailtxt"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
+
 
                         android:text="Email"/>
 
@@ -155,7 +169,7 @@ android:id="@+id/linemail"
                         android:id="@+id/email"
                         android:gravity="left"
                         android:ellipsize="end"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:maxLines="1"
                         android:layout_marginLeft="5dp"
                         android:text="abc@gmail.com"/>
@@ -174,8 +188,8 @@ android:id="@+id/linemail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/mobiletxt"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
+
 
                         android:text="Mobile"/>
 
@@ -183,7 +197,7 @@ android:id="@+id/linemail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/mobile"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:gravity="left"
                         android:ellipsize="end"
                         android:layout_marginLeft="5dp"
@@ -195,6 +209,7 @@ android:id="@+id/linemail"
             </LinearLayout>
 
         </LinearLayout>
+            </LinearLayout>
 
         </com.facebook.shimmer.ShimmerFrameLayout>
 

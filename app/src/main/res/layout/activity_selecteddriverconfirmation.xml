@@ -5,36 +5,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/purple_200"
     tools:context=".customer.selecteddriverconfirmation">
 
 
+    <ImageView
+        android:id="@+id/ivCongratsIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/checked"
+        android:layout_marginTop="32dp" />
+
+    <!-- Congratulatory Message -->
     <TextView
+        android:id="@+id/tvCongratsMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="25dp"
-        android:fontFamily="@font/ttnormspromedium"
-
-        android:text="Congratulation you have selected :"
-        android:textSize="30sp"
-        ></TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="25dp"
-        android:fontFamily="@font/ttnormspromedium"
-
-        android:id="@+id/drivername"
-        android:text="Congratulation you have selected :"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Congratulations!"
         android:textSize="24sp"
-        ></TextView>
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <!-- Driver Selection Message -->
+    <TextView
+        android:id="@+id/tvDriverSelectedMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="You have selected [Driver Name] as your driver."
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textAlignment="center" />
+
+    <!-- Placeholder for Animation (Optional) -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:lottie_rawRes="@raw/success_animation"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_marginTop="24dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:gravity="center"
-android:layout_marginTop="370dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -46,9 +69,7 @@ android:layout_marginTop="370dp"
             android:layout_height="60dp"
             android:layout_below="@+id/Cpassword"
             android:layout_marginRight="200dp"
-            android:background="@drawable/backbtn"
-
-            android:elevation="35dp"
+            android:background="@drawable/prev_button_bg"
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,9 +80,8 @@ android:layout_marginTop="370dp"
             android:layout_width="56dp"
             android:layout_height="60dp"
             android:layout_below="@+id/Cpassword"
-            android:background="@drawable/forwardbtn"
+            android:background="@drawable/next_button_bg"
             android:scaleType="centerCrop"
-            android:elevation="35dp"
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

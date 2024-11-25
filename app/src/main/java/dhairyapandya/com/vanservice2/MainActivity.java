@@ -18,15 +18,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.play.core.appupdate.AppUpdateInfo;
-import com.google.android.play.core.appupdate.AppUpdateManager;
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
-import com.google.android.play.core.install.InstallStateUpdatedListener;
-import com.google.android.play.core.install.model.AppUpdateType;
-import com.google.android.play.core.install.model.InstallStatus;
-import com.google.android.play.core.install.model.UpdateAvailability;
-import com.google.android.play.core.tasks.OnSuccessListener;
-import com.google.android.play.core.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import dhairyapandya.com.vanservice2.customer.availabledrivers.availabledrivers;
@@ -39,7 +30,6 @@ import dhairyapandya.com.vanservice2.miscellaneous.NetworkChangeReceiver;
 public class MainActivity extends AppCompatActivity {
     RadioGroup RG;
     public static int UPDATE_CODE=22;
-    AppUpdateManager appUpdateManager;
 
     ImageButton Next;
 String usertype;
@@ -50,7 +40,7 @@ String usertype;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        inappupdate();
+//        inappupdate();
         Next = findViewById(R.id.nxtbtn);
         RG = findViewById(R.id.radgrp);
         customer = (RadioButton) findViewById(R.id.Customer);
@@ -65,57 +55,55 @@ String usertype;
                 int radioID = RG.getCheckedRadioButtonId();
                 gen = findViewById(radioID);
                  usertype = gen.getText().toString();
-
+                if(usertype.equals("Student")){
+                    usertype="Customer";
+                }
                  //do the work of shared preference
                 //DO THE WORK OF SHARED PREFERENCE
                 SharedPreferences.Editor editor = getSharedPreferences("Van Service users data", MODE_PRIVATE).edit();
                 editor.putString("Use type", usertype);
                 editor.apply();
-//                Toast.makeText(MainActivity.this, "Data added from shared preference", Toast.LENGTH_SHORT).show();
 
                 if (usertype.equals("Customer")) {
                     Intent intent = new Intent(MainActivity.this,login.class);
                     startActivity(intent);
-                    Toast.makeText(MainActivity.this, "Customer", Toast.LENGTH_SHORT).show();
                 } else if (usertype.equals("Driver")) {
                     Intent intent = new Intent(MainActivity.this,login.class);
                     startActivity(intent);
-                    Toast.makeText(MainActivity.this, "Driver", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(MainActivity.this, "An error occured Please try after some time", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
     }
 
-    private void inappupdate() {
-        appUpdateManager = AppUpdateManagerFactory.create(this);
-        Task<AppUpdateInfo> task = appUpdateManager.getAppUpdateInfo();
-        task.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
-            @Override
-            public void onSuccess(AppUpdateInfo appUpdateInfo) {
-                if(appUpdateInfo.updateAvailability()== UpdateAvailability.UPDATE_AVAILABLE
-                        && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE))
-                {
-                    try {
-                        appUpdateManager.startUpdateFlowForResult(appUpdateInfo,AppUpdateType.FLEXIBLE,MainActivity.this,UPDATE_CODE);
-                    } catch (IntentSender.SendIntentException e) {
-                        e.printStackTrace();
-                        Log.e("Update Error"," Yae error hai : "+e.toString());
-                    }
-                }
-
-            }
-        });
-        appUpdateManager.registerListener(listener);
-    }
-    InstallStateUpdatedListener listener = installState -> {
-        if(installState.installStatus()== InstallStatus.DOWNLOADED){
-            popup();
-        }
-    };
+//    private void inappupdate() {
+//        appUpdateManager = AppUpdateManagerFactory.create(this);
+//        Task<AppUpdateInfo> task = appUpdateManager.getAppUpdateInfo();
+//        task.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+//            @Override
+//            public void onSuccess(AppUpdateInfo appUpdateInfo) {
+//                if(appUpdateInfo.updateAvailability()== UpdateAvailability.UPDATE_AVAILABLE
+//                        && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE))
+//                {
+//                    try {
+//                        appUpdateManager.startUpdateFlowForResult(appUpdateInfo,AppUpdateType.FLEXIBLE,MainActivity.this,UPDATE_CODE);
+//                    } catch (IntentSender.SendIntentException e) {
+//                        e.printStackTrace();
+//                        Log.e("Update Error"," Yae error hai : "+e.toString());
+//                    }
+//                }
+//
+//            }
+//        });
+//        appUpdateManager.registerListener(listener);
+//    }
+//    InstallStateUpdatedListener listener = installState -> {
+//        if(installState.installStatus()== InstallStatus.DOWNLOADED){
+//            popup();
+//        }
+//    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -128,21 +116,6 @@ String usertype;
         }
     }
 
-    private void popup() {
-            Snackbar snacbar =Snackbar.make(findViewById(android.R.id.content),
-                    "App Updare Almost Done",
-                    Snackbar.LENGTH_INDEFINITE);
-            snacbar.setAction("Reload", new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    appUpdateManager.completeUpdate();
-                }
-            });
-            snacbar.setTextColor(Color.parseColor("#FCE302"));
-            snacbar.show();
-
-
-    }
 
     @Override
     protected void onStart() {
@@ -156,20 +129,19 @@ String usertype;
             String name = prefs.getString("Use type", "Customer"); //"Blank Name" the default value.
 
 
-//            Toast.makeText(this, "Data retreved from shared preference", Toast.LENGTH_SHORT).show();
 
             if (name.equals("Customer")) {
                 SharedPreferences preffs = getSharedPreferences("Van Service users data", MODE_PRIVATE);
 
 
-                String selecteddriversuniqueid = preffs.getString("driversuniqueid", "drivverdefaultselectedid");
+                String selecteddriversuniqueid = preffs.getString("uid", "drivverdefaultselecteUid");
                 String selectedcity = preffs.getString("Selected City", "defaultselectedcity");
                 String boardingpt = preffs.getString("Selected Boarding Point", "defaultselectedboardingpoint");
 //                String driverid = preffs.getString("driversuniqueid", "defaultselectedboardingpoint");
                 Log.e("Status",selectedcity+"Selected City");
                 Log.e("Status",boardingpt+"Selected Boarding Point");
                 Log.e("Status",selecteddriversuniqueid+"Selected Unique id");
-                if(!(selectedcity.equals("defaultselectedcity") || boardingpt.equals("defaultselectedboardingpoint")||selecteddriversuniqueid.equals("drivverdefaultselectedid")))
+                if(!(selectedcity.equals("defaultselectedcity") || !boardingpt.equals("defaultselectedboardingpoint")|| !selecteddriversuniqueid.equals("drivverdefaultselectedid")))
                 {
                     startActivity(new Intent(getApplicationContext(), usershomepage.class));
                     finish();
@@ -188,7 +160,7 @@ String usertype;
                 String platenumber = prefffs.getString("Plate number of vehical", "defaultplate");
                 String busstopsselected = prefffs.getString("BusStops Selected by driver", "defaultstop");
                 String cost = prefffs.getString("Cost", "defaultcost");
-                String did = prefffs.getString("Did", "defaultdid");
+                String uid = prefffs.getString("uid", "defaultdid");
 
                 if(!"defaultselectedcitydriver".equals(city)&&
                         !"defaultvehical".equals(vehical)&&
@@ -197,7 +169,7 @@ String usertype;
                         !"defaultplate".equals(platenumber)&&
                         !"defaultstop".equals(busstopsselected)&&
                         !"defaultcost".equals(cost)&&
-                        !"defaultdid".equals(did))
+                        !"defaultuid".equals(uid))
                 {
                     startActivity(new Intent(getApplicationContext(), drivershomepage.class));
                     finish();
@@ -210,7 +182,6 @@ String usertype;
                 }
 
             } else {
-                Toast.makeText(MainActivity.this, "An error occured Please try after some time", Toast.LENGTH_SHORT).show();
             }
 
 

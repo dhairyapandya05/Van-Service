@@ -7,9 +7,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -29,35 +35,49 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import dhairyapandya.com.vanservice2.R;
 
 public class editprofile extends AppCompatActivity {
-    EditText Name,Email,Mobile;
+    EditText Name,Mobile;
     Button Save;
+    String usertype;
+    String downloadUrl;
+    private Uri imageUri;
     ImageView Profilepic;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+    private FirebaseStorage storage;
     FirebaseUser user;
     StorageReference storageReference;
     NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
-
+    private static final int PICK_IMAGE_REQUEST = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
         Name=findViewById(R.id.ename);
-        Email=findViewById(R.id.eemailaddress);
         Mobile=findViewById(R.id.emobilenumber);
         Save=findViewById(R.id.save);
         Profilepic=findViewById(R.id.profilepicture);
         fStore=FirebaseFirestore.getInstance();
         fAuth=FirebaseAuth.getInstance();
-        user=fAuth.getCurrentUser();
-        storageReference= FirebaseStorage.getInstance().getReference();
+        storage = FirebaseStorage.getInstance();
+//        user=fAuth.getCurrentUser();
+//        storageReference= FirebaseStorage.getInstance().getReference();
 
+        SharedPreferences prefs = getSharedPreferences("Van Service users data", MODE_PRIVATE);
+
+        usertype = prefs.getString("Use type", "Customer");
+        String uid=fAuth.getCurrentUser().getUid();
+
+        
         //getting the data from the previous activity
         Intent data= getIntent();
         String fullName = data.getStringExtra("fullname");
@@ -65,50 +85,87 @@ public class editprofile extends AppCompatActivity {
         String phone = data.getStringExtra("phone");
 
         Name.setText(fullName);
-        Email.setText(email);
         Mobile.setText(phone);
 
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Name.getText().toString().isEmpty() ||Email.getText().toString().isEmpty() || Mobile.getText().toString().isEmpty()){
-                    Toast.makeText(editprofile.this, "Empty Field", Toast.LENGTH_SHORT).show();
+                if(Name.getText().toString().isEmpty() ||Mobile.getText().toString().isEmpty()){
                     return;
                 }
-                String Editedemail=Email.getText().toString();
-                user.updateEmail(Editedemail).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        DocumentReference docRef=fStore.collection("users").document(user.getUid());
-                        Map<String,Object> edited=new HashMap<>();
-                        edited.put("Mail ID",Editedemail);
-                        edited.put("Mobile Number",Mobile.getText().toString());
-                        edited.put("Name",Name.getText().toString());
-                        docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+                Map<String, Object> updates = new HashMap<>();
+                updates.put("Name", Name.getText().toString()); // Example: String field
+                updates.put("MobileNumber", Mobile.getText().toString());
+
+                fStore.collection(usertype)
+                        .document(uid)
+                        .update(updates) // Update fields only
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
-                            public void onSuccess(Void unused) {
-                                //Also update it in shared preference
-
-                                SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(editprofile.this).edit();
-                                edit.putString("Name",Name.getText().toString());
-                                edit.apply();
-
-
-                                Toast.makeText(editprofile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), profile.class));
-                                finish();
+                            public void onSuccess(Void aVoid) {
+                                Log.d("Firestore", "Document updated successfully!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.e("Firestore", "Error updating document: " + e.getMessage());
                             }
                         });
 
 
-                        Toast.makeText(editprofile.this, "Profile changed", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(editprofile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                imagePart();
 
-                    }
+
+                SharedPreferences.Editor editor = getSharedPreferences("Van Service users data", MODE_PRIVATE).edit();
+                editor.putString("Name", Name.getText().toString());
+                editor.putString("Mobile Number", Mobile.getText().toString());
+                editor.putString("image Url", downloadUrl);
+                editor.apply();
+                Log.e("Status", "Data added to shared preference");
+                navigatetoProfile();
+            }
+
+            private void imagePart() {
+//                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.man);
+                Bitmap bitmap=getBitmapFromImageView(Profilepic);
+                // Compress the bitmap to a byte array
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); // Use PNG if lossless quality is needed
+                byte[] imageData = baos.toByteArray();
+
+                // Reference to Firebase Storage (same path as the existing image)
+                String imagePath = usertype+"/"+uid+"/profilePhoto.png"; // Keep the same path to replace
+                FirebaseStorage storage = FirebaseStorage.getInstance();
+                StorageReference storageRef = storage.getReference().child(imagePath);
+
+                // Upload the new image to Firebase Storage (replaces the existing one)
+                UploadTask uploadTask = storageRef.putBytes(imageData);
+
+                uploadTask.addOnSuccessListener(taskSnapshot -> {
+                    // Get the updated download URL
+                    storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                        downloadUrl = uri.toString();
+
+                        // Update Firestore with the new URL
+                        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+//                        String documentId = "uid"; // Replace with your document ID
+                        firestore.collection(usertype)
+                                .document(uid)
+                                .update("imageUrl", downloadUrl) // Update only the URL field
+                                .addOnSuccessListener(aVoid -> {
+                                    Log.d("Firestore", "Image URL updated successfully!");
+                                })
+                                .addOnFailureListener(e -> {
+                                    Log.e("Firestore", "Failed to update Firestore", e);
+                                });
+
+                    }).addOnFailureListener(e -> {
+                        Log.e("FirebaseStorage", "Failed to get download URL", e);
+                    });
+                }).addOnFailureListener(e -> {
+                    Log.e("FirebaseStorage", "Image upload failed", e);
                 });
             }
         });
@@ -125,45 +182,45 @@ public class editprofile extends AppCompatActivity {
                         .start();
             }
         });
-        Log.d("Bhaiusercreatehogaya","onCreate : "+fullName+" "+email+" "+phone);
 
+    }
+
+    private void navigatetoProfile() {
+// Check if the image is set in ImageView
+        Drawable drawable = Profilepic.getDrawable();
+        if (drawable instanceof BitmapDrawable) {
+            Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+
+            // Create an Intent to open Activity 2
+            Intent intent = new Intent(getApplicationContext(), profile.class);
+
+            // Put the Bitmap into the Intent as a Parcelable
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+
+            intent.putExtra("imageBitmap", byteArray); // Pass byte[] as extra
+            startActivity(intent);
+            finish();
+        } else {
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Uri uri = data.getData();
-        Profilepic.setImageURI(uri);
+        if (resultCode == RESULT_OK && data != null) {
+            // Get the image URI
+            Uri imageUri = data.getData();
 
-    }
+            // Display the selected image in Profilepic
+            Profilepic.setImageURI(imageUri);
 
-
-
-
-    private void uploadImageToFirebase(Uri imageUri) {
-        //logic to upload image to firebase storage
-        StorageReference fileRef =storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/Van Service.jpg");
-        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Profilepic.setImageURI(uri);
-//                        Toast.makeText(editprofile.this, "Sucesss Mil gai bhai .... Congo ", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(editprofile.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            // Handle error
+        } else {
+            // User cancelled the picker
+        }
     }
 
     @Override
@@ -178,4 +235,29 @@ public class editprofile extends AppCompatActivity {
         unregisterReceiver(networkChangeReceiver);
         super.onDestroy();
     }
+
+    // Method to convert ImageView to Bitmap
+    private Bitmap getBitmapFromImageView(ImageView imageView) {
+        // Get the drawable from ImageView
+        Drawable drawable = imageView.getDrawable();
+
+        if (drawable instanceof BitmapDrawable) {
+            // If drawable is already a BitmapDrawable, extract the Bitmap
+            return ((BitmapDrawable) drawable).getBitmap();
+        } else {
+            // For other types of Drawables, create a Bitmap manually
+            Bitmap bitmap = Bitmap.createBitmap(
+                    drawable.getIntrinsicWidth(),
+                    drawable.getIntrinsicHeight(),
+                    Bitmap.Config.ARGB_8888);
+
+            // Draw the drawable onto the Bitmap
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+
+            return bitmap;
+        }
+    }
+
 }

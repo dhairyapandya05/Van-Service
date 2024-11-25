@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <capability android:name="actions.intent.GET_THING">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="dhairyapandya.com.vanservice2"
+            android:targetClass="dhairyapandya.com.vanservice2.MainActivity">
+            <parameter
+                android:name="thing.name"
+                android:key="q">
+            </parameter>
+        </intent>
+    </capability>
+
+
+    <shortcut
+        android:shortcutId="ID_ONE"
+        android:shortcutShortLabel="@string/shortcut_short_label_comming"
+        android:shortcutLongLabel="@string/shortcut_long_label_comming"
+        android:enabled="false">
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:value="@array/completedsym"
+                android:key="feature"/>
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="ID_TWO"
+        android:shortcutShortLabel="@string/shortcut_short_label_registered"
+        android:shortcutLongLabel="@string/shortcut_long_label_registered"
+        android:enabled="false">
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:value="@array/registeredsym"
+                android:key="feature"/>
+        </capability-binding>
+    </shortcut>
+
+
+
     <capability android:name="actions.intent.OPEN_APP_FEATURE">
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="dhairyapandya.com.vanservice2"
-            android:targetClass="dhairyapandya.com.vanservice2.customer.usershomepage">
+            android:targetClass="dhairyapandya.com.vanservice2.MainActivity">
             <parameter
                 android:name="feature"
                 android:key="feature">
             </parameter>
         </intent>
     </capability>
-
-
-
-
 </shortcuts>

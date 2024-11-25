@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="completedsym">
+        <item>Commers</item>
+        <item>Anavalae Students</item>
+        <item>Passengers</item>
+
+    </array>
+
+    <array name="registeredsym">
+        <item>Registered Students</item>
+        <item>Registries</item>
+        <item>register students</item>
+
+    </array>
+</resources>

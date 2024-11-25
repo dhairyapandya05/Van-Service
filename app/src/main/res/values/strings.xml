@@ -6,59 +6,59 @@
     <string name="dismiss_label">Dismiss</string>
     <string name="clear_all_label">Clear all</string>
 
+
+    <!--    <string name="shortcut_short_label">comming</string>-->
+    <!--    <string name="shortcut_long_label">comming students</string>-->
+    <string name="shortcut_short_label_comming">comming</string>
+    <string name="shortcut_long_label_comming">comming students</string>
+    <string name="shortcut_short_label_registered">registered</string>
+    <string name="shortcut_long_label_registered">registered students</string>
+
     <string-array name="vadodarastops">
-        <item>Central Bus Station Vadodara</item>
-        <item>Central Bus Depot Vadodara</item>
-        <item>Makarpura Naka</item>
-        <item>Vadodara city bus station</item>
-        <item>Vinayak City Bus Service</item>
-        <item>Dashrath Bus Station</item>
-        <item>Bus Station</item>
-        <item>Central Bus Station Vadodara</item>
+        <item>Central Bus Station</item>
+        <item>Makarpura Central</item>
         <item>City Bus Depot</item>
-        <item>Makarpura Central Bus Station</item>
+        <item>Vadodara Bus Station</item>
+        <item>Dashrath Bus Station</item>
+        <item>Vinayak City</item>
+        <item>Vadodara city bus station</item>
+        <item>Makarpura Naka</item>
+        <item>Central Bus Depot</item>
     </string-array>
 
 
     <string-array name="nadiadstops">
-        <item>Central Bus Station Nadiad</item>
-        <item>Central Bus Depot Nadiad</item>
-        <item>Makarpura Naka Nadiad</item>
-        <item>Nadiad city bus station</item>
-        <item>Vinayak City Bus Service Nadiad</item>
-        <item>Dashrath Bus Station Nadiad</item>
+        <item>Central Bus Station</item>
+        <item>Makarpura Central</item>
+        <item>City Bus Depot</item>
         <item>Nadiad Bus Station</item>
-        <item>Central Bus Station Nadiad</item>
-        <item>City Bus Depot Nadiad</item>
-        <item>Makarpura Central Bus Station Nadiad</item>
+        <item>Dashrath Bus Station</item>
+        <item>Vinayak City</item>
+        <item>Nadiad city bus station</item>
+        <item>Makarpura Naka</item>
+        <item>Central Bus Depot</item>
     </string-array>
 
 
     <string-array name="ahmedabadastops">
-        <item>Central Bus Station Ahmedabad</item>
-        <item>Central Bus Depot Ahmedabad</item>
-        <item>Makarpura Naka Ahmedabad</item>
-        <item>Ahmedabad city bus station</item>
-        <item>Vinayak City Bus Service Ahmedabad</item>
-        <item>Dashrath Bus Station Ahmedabad</item>
+        <item>Central Bus Station</item>
+        <item>Makarpura Central</item>
+        <item>City Bus Depot</item>
         <item>Ahmedabad Bus Station</item>
-        <item>Central Bus Station Ahmedabad</item>
-        <item>City Bus Depot Ahmedabad</item>
-        <item>Makarpura Central Bus Station Ahmedabad</item>
+        <item>Dashrath Bus Station</item>
+        <item>Vinayak City</item>
+        <item>Ahmedabad city bus station</item>
+        <item>Makarpura Naka</item>
+        <item>Central Bus Depot</item>
     </string-array>
 
 
     <string-array name="anandstops">
-        <item>Central Bus Station Anand</item>
-        <item>Central Bus Depot Anand</item>
-        <item>Makarpura Naka Anand</item>
-        <item>Anand city bus station</item>
-        <item>Vinayak City Bus Service Anand</item>
-        <item>Dashrath Bus Station Anand</item>
-        <item>Anand Bus Station</item>
-        <item>Central Bus Station Anand</item>
-        <item>City Bus Depot Anand</item>
-        <item>Makarpura Central Bus Station Anand</item>
+        <item>Central Bus Station</item>
+        <item>City Bus Depot</item>
+        <item>Makarpura Central Bus Station</item>
+        <item>Ashoka Temple</item>
+        <item>Vinayak Guest House</item>
     </string-array>
     <string-array name="theme">
         <item>System Default</item>

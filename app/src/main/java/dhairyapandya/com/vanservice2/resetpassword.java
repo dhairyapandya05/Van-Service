@@ -60,12 +60,10 @@ public class resetpassword extends AppCompatActivity {
                         fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(resetpassword.this, "Reset link Sent", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(resetpassword.this, "Error Reset link not Sent"+e.getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
                         });
@@ -89,7 +87,6 @@ public class resetpassword extends AppCompatActivity {
             public void onClick(View view) {
                 if((password.getText().toString().trim().isEmpty())||reenterpassword.getText().toString().trim().isEmpty())
                 {
-                    Toast.makeText(resetpassword.this,"Password field required",Toast.LENGTH_SHORT).show();
                 }
 
                 if(!(reenterpassword.getText().toString().trim().equals(password.getText().toString().trim().isEmpty())))
@@ -98,14 +95,12 @@ public class resetpassword extends AppCompatActivity {
                 user.updatePassword(password.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(resetpassword.this,"Password Updated",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), profile.class));
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(resetpassword.this,e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

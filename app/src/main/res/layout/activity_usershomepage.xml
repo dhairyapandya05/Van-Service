@@ -5,29 +5,228 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="@color/purple_200"
     tools:context=".customer.usershomepage"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="User Home Page"
-        android:fontFamily="@font/ttnormsproblack"
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
 
-        android:layout_marginBottom="155dp"
-        android:textSize="34sp"></TextView>
 
-    <com.ncorti.slidetoact.SlideToActView
-        android:id="@+id/example"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="25dp"
-        app:outer_color="@color/purple_700"
-        android:layout_marginVertical="15dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ttnormspromedium"
-        app:text="Swipe to Cancle"
-        />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_marginTop="15dp"
+               android:layout_height="150dp"
+               android:elevation="5dp"
+               android:layout_marginHorizontal="15dp"
+               app:cardCornerRadius="15dp">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_marginVertical="10dp"
+                   android:background="@drawable/tripprogressimage"
+                   android:layout_height="match_parent"/>
+
+
+           </androidx.cardview.widget.CardView>
+
+<!--           Nowwwwww R AND d beginssssssssssss-->
+
+
+
+           <GridLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:columnCount="2"
+               android:rowCount="2"
+               android:gravity="center">
+
+               <!-- Card for Total Students -->
+               <androidx.cardview.widget.CardView
+                   android:layout_width="0dp"
+                   android:layout_height="150dp"
+                   android:layout_columnWeight="1"
+                   app:cardCornerRadius="12dp"
+                   app:cardElevation="6dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginBottom="5dp"
+                   android:background="@color/white">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:orientation="vertical"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/titleTotalStudents"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Total Trips"
+                           android:textColor="@color/purple_700"
+                           android:textSize="16sp"
+                           android:textStyle="bold"
+                           android:paddingBottom="4dp" />
+
+                       <TextView
+                           android:id="@+id/numberTotalStudents"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="1.2K"
+                           android:fontFamily="@font/rethinksansbold"
+
+                           android:textColor="@color/purple_700"
+                           android:textSize="42sp"
+                           android:textStyle="bold" />
+                   </LinearLayout>
+               </androidx.cardview.widget.CardView>
+
+               <!-- Card for Round Trips -->
+               <androidx.cardview.widget.CardView
+                   android:layout_width="0dp"
+                   android:layout_height="150dp"
+                   android:layout_columnWeight="1"
+                   app:cardCornerRadius="12dp"
+                   app:cardElevation="6dp"
+                   android:layout_marginRight="10dp"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginBottom="5dp"
+                   android:background="@color/white">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:orientation="vertical"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/titleRoundTrips"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Round Trips"
+                           android:textColor="@color/purple_700"
+                           android:textSize="16sp"
+                           android:textStyle="bold"
+                           android:paddingBottom="4dp" />
+
+                       <TextView
+                           android:id="@+id/numberRoundTrips"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="56"
+                           android:fontFamily="@font/rethinksansbold"
+
+                           android:textColor="@color/purple_700"
+                           android:textSize="42sp"
+                           android:textStyle="bold" />
+                   </LinearLayout>
+               </androidx.cardview.widget.CardView>
+
+               <!-- Card for One-Way Trips -->
+               <androidx.cardview.widget.CardView
+                   android:layout_width="0dp"
+                   android:layout_height="150dp"
+                   android:layout_columnWeight="1"
+                   app:cardCornerRadius="12dp"
+                   app:cardElevation="6dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginBottom="10dp"
+                   android:layout_marginTop="5dp"
+                   android:background="@color/white">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:orientation="vertical"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/titleOneWayTrips"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="One-Way Trips"
+                           android:textColor="@color/purple_700"
+                           android:textSize="16sp"
+                           android:textStyle="bold"
+                           android:paddingBottom="4dp" />
+
+                       <TextView
+                           android:id="@+id/numberOneWayTrips"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="78"
+                           android:fontFamily="@font/rethinksansbold"
+
+                           android:textColor="@color/purple_700"
+                           android:textSize="42sp"
+                           android:textStyle="bold" />
+                   </LinearLayout>
+               </androidx.cardview.widget.CardView>
+
+               <!-- Card for Return Only -->
+               <androidx.cardview.widget.CardView
+                   android:layout_width="0dp"
+                   android:layout_height="150dp"
+                   android:layout_columnWeight="1"
+                   app:cardCornerRadius="12dp"
+                   android:layout_marginRight="10dp"
+                   app:cardElevation="6dp"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginBottom="10dp"
+                   android:layout_marginTop="5dp"
+                   android:background="@color/white">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:orientation="vertical"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/titleReturnOnly"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Return Only"
+                           android:textColor="@color/purple_700"
+                           android:textSize="16sp"
+                           android:textStyle="bold"
+                           android:paddingBottom="4dp" />
+
+                       <TextView
+                           android:id="@+id/numberReturnOnly"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="34"
+                           android:fontFamily="@font/rethinksansbold"
+
+                           android:textColor="@color/purple_700"
+                           android:textSize="42sp"
+                           android:textStyle="bold" />
+                   </LinearLayout>
+               </androidx.cardview.widget.CardView>
+
+           </GridLayout>
+
+
+
+           <com.ncorti.slidetoact.SlideToActView
+               android:id="@+id/example"
+               android:layout_width="match_parent"
+               android:layout_marginHorizontal="25dp"
+               app:outer_color="@color/purple_700"
+               android:layout_marginVertical="15dp"
+               android:layout_height="wrap_content"
+               app:text="Swipe to Cancle Today's Ride"
+               />
+       </LinearLayout>
+   </ScrollView>
 
 </LinearLayout>

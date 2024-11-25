@@ -1,8 +1,10 @@
 package dhairyapandya.com.vanservice2;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -32,7 +34,7 @@ public class register extends AppCompatActivity {
         Button login;
     FirebaseAuth fAuth;
 NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
-
+Boolean initiatePopup=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,38 +74,44 @@ NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
                 String password = Password.getText().toString();
                 String confirmpasword = Confirmpassword.getText().toString();
 
-
-
-
-
+                Boolean passwordValidflag=false;
+                passwordValidflag=passwordChecker(password);
 
                 if (name.isEmpty()) {
-                    Name.setError("Name is required");
+                    initiatePopup=true;
+                    ShowDiaglogBox("Name is Required");
                     return;
                 }
 
                 if (mobilenumber.isEmpty()) {
-                    Mobilenumber.setError("Mobile is required");
+                    initiatePopup=true;
+                    ShowDiaglogBox("Mobile Number is Required");
                     return;
                 }
                 if (email.isEmpty()) {
-                    Emailaddress.setError("Email is required");
+                    initiatePopup=true;
+                    ShowDiaglogBox("Email id is required");
                     return;
                 }
-                if (password.isEmpty()) {
-                    Password.setError("Password is required");
+                if (password.isEmpty() | passwordChecker(password)==false) {
+                    initiatePopup=true;
+                    ShowDiaglogBox("Please enter valid password");
                     return;
                 }
-                if (confirmpasword.isEmpty()) {
-                    Confirmpassword.setError("Confirm Password is required");
+                if (confirmpasword.isEmpty() | passwordChecker(password)==false) {
+                    initiatePopup=true;
+                    ShowDiaglogBox("Please enter valid password");
+
                     return;
                 }
-                if (!password.equals(confirmpasword)) {
-                    Confirmpassword.setError("Password do not match");
+                if (!password.equals(confirmpasword) | !passwordChecker(password)) {
+                    initiatePopup=true;
+                    ShowDiaglogBox("Password do not match");
+
                     return;
                 }
+
                 // data is validated
-                Toast.makeText(register.this, "Data Validated", Toast.LENGTH_SHORT).show();
 
 
                 fAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -120,7 +128,6 @@ NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
                         editor.putString("Mail ID", email);
                         editor.putString("Password", password);
                         editor.apply();
-//                        Toast.makeText(register.this, "Data added from shared preference", Toast.LENGTH_SHORT).show();
 
                         //sending the user in the main activity
 
@@ -136,7 +143,6 @@ NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
                             startActivity(i);
 
                         } else {
-                            Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -144,11 +150,37 @@ NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(register.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
+    }
+    public void ShowDiaglogBox(String stringmsg){
+        AlertDialog.Builder alertdialog = new AlertDialog.Builder(register.this);
+        alertdialog.setMessage(stringmsg);
+        alertdialog.setTitle("Data Invalidated !");
+        alertdialog.setCancelable(true);
+        alertdialog.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+            dialog.cancel();
+        });
+        AlertDialog alertDG= alertdialog.create();
+        alertDG.show();
+    }
+    public Boolean passwordChecker(String password) {
+        Boolean capitalFlag=false,smallflag=false,numberflag=false;
+        for(int i=0;i<password.length();i++){
+            char ch=password.charAt(i);
+            if(Character.isLowerCase(ch)){
+                smallflag=true;
+            }
+            if(Character.isUpperCase(ch)==true){
+                capitalFlag=true;
+            }
+            if(Character.isDigit(ch)){
+                numberflag=true;
+            }
+        }
+        return capitalFlag==true & smallflag==true & numberflag==true;
     }
 
     @Override

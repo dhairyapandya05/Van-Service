@@ -12,6 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardCornerRadius="24dp"
+    android:backgroundTint="@color/purple_200"
     android:layout_gravity="center"
     android:layout_marginHorizontal="50dp"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +45,6 @@
         android:layout_height="wrap_content"
         android:text="You are Offline"
         android:textSize="24sp"
-        android:fontFamily="@font/ttnormspromedium"
 
         android:layout_gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="@+id/lottieAnimationView"
@@ -59,8 +59,7 @@
         android:layout_gravity="center_horizontal"
         android:text="Retry"
         android:background="@drawable/roundedcornerbtn"
-        android:fontFamily="@font/ttnormspromedium"
-        android:textStyle="bold"
+
         android:layout_marginVertical="30dp"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"

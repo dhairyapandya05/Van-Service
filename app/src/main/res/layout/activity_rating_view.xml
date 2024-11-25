@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/ratingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate Your Experience"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center"/>
+
+    <!-- Subtitle Text -->
+    <TextView
+        android:id="@+id/ratingSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We would love to hear your feedback!"
+        android:textSize="16sp"
+        android:textColor="#1A1A1A"
+        android:fontFamily="sans-serif"
+        android:layout_marginBottom="24dp"
+        android:textAlignment="center"/>
+
+    <!-- Star Rating Layout -->
+    <com.example.ratinglibrary.RatingView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+    <!-- Feedback EditText -->
+    <EditText
+        android:id="@+id/feedbackInput"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Leave a comment..."
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:gravity="top"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:inputType="textCapSentences"/>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/black"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

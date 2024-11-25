@@ -3,7 +3,7 @@
     <item
         android:id="@+id/studentslist"
         android:icon="@drawable/ic_baseline_directions_bus_24"
-        android:title="Students List" />
+        android:title="Dashboard" />
     <item
         android:id="@+id/tripprogress"
         android:icon="@drawable/ic_baseline_my_location_24"

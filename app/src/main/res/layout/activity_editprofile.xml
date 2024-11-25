@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profilebackground"
+    android:background="@color/purple_200"
     tools:context=".miscellaneous.editprofile">
 
 
@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="42dp"
         android:layout_marginBottom="436dp"
-        android:src="@drawable/users"
+        android:src="@drawable/man"
         app:civ_border_color="@color/white"
         app:civ_border_width="3dp"
         app:layout_constraintBottom_toTopOf="@+id/save"
@@ -32,7 +32,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="@+id/profilepicture"
-        android:fontFamily="@font/ttnormspromedium"
+
 
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/profilepicture"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:id="@+id/ename"
             android:layout_height="match_parent"
-            android:fontFamily="@font/ttnormspromedium"
+
 
             android:inputType="textPersonName"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:fontFamily="@font/ttnormspromedium"
+
 
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="@+id/name"
@@ -66,7 +66,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emobilenumber"
             android:layout_width="match_parent"
-            android:fontFamily="@font/ttnormspromedium"
+
 
             android:layout_height="match_parent"
             android:inputType="text|phone"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/ttnormspromedium"
+
 
         app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="@+id/mobilenumber"
@@ -89,14 +89,7 @@
         app:layout_constraintVertical_bias="0.0">
 
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/eemailaddress"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/ttnormspromedium"
 
-            android:inputType="textEmailAddress"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -105,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="77dp"
         android:text="Save"
-        android:fontFamily="@font/ttnormspromedium"
+
 
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
